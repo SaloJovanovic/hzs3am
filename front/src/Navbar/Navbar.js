@@ -55,7 +55,7 @@ const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
         </li>
 
         <li className={'nav-item'}>
-          <Link className={'nav-link'} to={'/login'}>
+          <Link className={'nav-link'} to={'/account'}>
             <HiUser className={'icon'}></HiUser>
             <span className={'link-text'}>Nalog</span>
           </Link>

@@ -8,6 +8,7 @@ import Wave from "./Wave/Wave";
 import Login from "./Login/Login";
 import * as path from "path";
 import Articles from "./Articles/Articles";
+import Account from "./Account/Account";
 
 function App() {
 
@@ -43,9 +44,9 @@ function App() {
             <div className={'Main'}>
               <Main navbarLightMode={navbarLightMode}></Main>
               {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
-              <Articles articles={articles} navbarLightMode={!navbarLightMode}></Articles>
-              <Wave waveType={2} navbarLightMode={navbarLightMode}></Wave>
-              <Footer navbarLightMode={navbarLightMode}></Footer>
+              <Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>}>
           </Route>
           <Route path={'/login'} element={
@@ -55,6 +56,14 @@ function App() {
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
           }></Route>
+          <Route path={'/account'} element={
+            <div className={'Main'}>
+              <Account navbarLightMode={navbarLightMode}></Account>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }>
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
