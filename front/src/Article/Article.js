@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import './Article.css';
-import {MdRestaurantMenu, FaHamburger, BiDrink, GiTomato} from "react-icons/all";
+import {MdRestaurantMenu, FaHamburger, BiDrink, GiTomato, IoMdPeople, MdSportsBasketball} from "react-icons/all";
 import  Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -13,9 +13,11 @@ const Article = ({navbarLightMode, article}) => {
   return (
     <div data-aos={"fade-up"} id={article.type} className={navbarLightMode ? 'article-container lightMode' : 'article-container'}>
       <div className={'col30'}>
+        <IoMdPeople></IoMdPeople>
         <h2>
-          {article.id}
+          {article.usersInterested}
         </h2>
+        <p>Interested Users</p>
       </div>
       <div className={'col70'}>
         <div className={'title'}>
@@ -25,7 +27,7 @@ const Article = ({navbarLightMode, article}) => {
           </div>
         </div>
         <div className={'iconn'}>
-          {article.type === "food" ? <FaHamburger/> :
+          {article.type === "sport" ? <MdSportsBasketball/> :
             article.type === "drink" ? <BiDrink/> :
             article.type === "salad" ? <GiTomato/>
           : <MdRestaurantMenu/>}

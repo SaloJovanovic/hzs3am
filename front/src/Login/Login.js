@@ -3,7 +3,7 @@ import './Login.css';
 import Wave from '../Wave/Wave';
 import {Link} from 'react-router-dom';
 
-const Login = ({navbarLightMode}) => {
+const Login = ({loginError, setLoginError, navbarLightMode, onUserLogin, error}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,10 +11,19 @@ const Login = ({navbarLightMode}) => {
   const [usernameSelected, setUsernameSelected] = useState(false);
   const [passwordSelected, setPasswordSelected] = useState(false);
 
+  const LoginNewUser = () => {
+    onUserLogin({
+      username: username,
+      password: password,
+    })
+    console.log("AAAAAAAAAA" + loginError);
+  }
+
+
   return (
     <>
       <div className={navbarLightMode ? 'login-container lightMode form' : 'login-container form'}>
-        <div className={'container'}>
+        <div className={loginError ? 'container AAAAA' : 'container'}>
           {/*<div className={'brand-logo'}></div>*/}
           <div className={'brand-title'}>LOG IN</div>
           <div className={'inputs'}>
@@ -40,13 +49,13 @@ const Login = ({navbarLightMode}) => {
                    onBlur={(event) => {
                      setPasswordSelected(false);
                    }}/>
-            <button className={'btn'} type={'submit'}>
+            <button className={'btn'} type={'submit'} onClick={LoginNewUser}>
               Log in
             </button>
             <p>Dont have an account? <Link className={'link'} to={'/new-user'}>Sign up</Link></p>
             <p>Want to create restaurant? <Link className={'link'} to={'/new-restaurant'}>Sign up as restaurant</Link></p>
             <p>Have a restaurant on this website? <Link className={'link'} to={'/login-restaurant'}>Log in as restaurant</Link></p>
-            {/*<p className={canLogInError ? 'error' : 'error active'}>False informations.</p>*/}
+            <p className={loginError ? 'error active' : 'error'}>Netacne informacije.</p>
           </div>
         </div>
       </div>

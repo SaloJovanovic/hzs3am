@@ -42,6 +42,7 @@ public class UserController {
         return userService.findUserByID(id);
     }
 
+    @CrossOrigin
     @PostMapping("/login")
     public LoginCreds loginByUsernameOrEmail (@RequestBody LoginInfo loginInfo) {
         return userService.loginByUsernameOrEmail(loginInfo);
