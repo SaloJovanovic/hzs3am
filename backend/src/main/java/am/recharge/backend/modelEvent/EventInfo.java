@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class EventInfo {
     private String title;
     private LocalDateTime time;
-    private String adress;
+    private String address;
     private String city;
     private int points;
 
@@ -32,12 +32,12 @@ public class EventInfo {
         this.time = time;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 
     public String getCity() {

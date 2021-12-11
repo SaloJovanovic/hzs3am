@@ -2,12 +2,15 @@ package am.recharge.backend.services;
 
 import am.recharge.backend.modelEvent.EventRepository;
 import am.recharge.backend.repositories.UserRepository;
+import com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+import com.sun.java.accessibility.util.EventID;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import am.recharge.backend.modelEvent.*;
 import am.recharge.backend.modules.*;
 import am.recharge.backend.repositories.*;
+import am.recharge.backend.services.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ import java.util.List;
 public class EventService {
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
+    private final UserService userService;
 
     public List<Event> getAllEvents(){
         return eventRepository.findAll();
@@ -46,8 +50,9 @@ public class EventService {
     
     public Event createEvent (EventInfo eventInfo, String userID) {
         User u = userRepository.findById(userID).orElse(null);
-        Event e = new Event(eventInfo.getTitle(), eventInfo.getTime(), eventInfo.getAdress(), eventInfo.getCity(), eventInfo.getPoints(),u.isVerified(), userID);
-        eventRepository.insert(e);
+        Event e = new Event(eventInfo.getTitle(), eventInfo.getTime(), eventInfo.getAddress(), eventInfo.getCity(), eventInfo.getPoints(),u.isVerified(), userID);
+        Event savedEvent = eventRepository.insert(e);
+        userService.addEventCreated(userID, savedEvent.getId());
         return e;
     }
 
@@ -57,9 +62,10 @@ public class EventService {
         eventRepository.save(e);
         return e;
     }
-    public Event putUserInterested(String userID, String eventID){
+    public Event putUserInterested(String eventID, String userID){
         Event e = eventRepository.findById(eventID).orElse(null);
         e.addUserI(userID);
+        userService.addEventInterested(userID,eventID);
         eventRepository.save(e);
         return e;
     }
