@@ -1,8 +1,11 @@
 import React from "react";
 import './Event.css'
 import {HiUser, MdGrade, MdVerified, SiPytorchlightning, AiFillEye} from "react-icons/all";
+import {useParams} from "react-router-dom";
 
 const Event = ({navbarLightMode}) => {
+  let eventId = useParams();
+  console.log(eventId);
   return (
     <div className={navbarLightMode ? 'event-container login-container form lightMode' : 'event-container login-container form'}>
       <div className={'container'}>

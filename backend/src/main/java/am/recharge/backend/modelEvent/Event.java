@@ -23,6 +23,7 @@ public class Event {
     private int views;
     private int numI;
     private List<String> userI;
+
     private int points;
     private Boolean verified;
     private String userID;

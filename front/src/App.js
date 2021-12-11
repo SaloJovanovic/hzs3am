@@ -11,6 +11,7 @@ import * as path from "path";
 import Articles from "./Articles/Articles";
 import Account from "./Account/Account";
 import Event from "./Event/Event";
+import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 
 function App() {
@@ -69,6 +70,30 @@ function App() {
 
   console.log(navbarLightMode);
 
+  const[loggedInUser, setLoggedInUser] = useState();
+  const getUser = async () => {
+    if (cookies.loggedInUserId != null) {
+      await fetch("http://localhost:8080/user/findByID?id=" + cookies.loggedInUserId)
+        .then((response) => response.json())
+        .then((data) => setLoggedInUser(data));
+    }
+  }
+  useEffect(()=>getUser(), []);
+
+  console.log(loggedInUser);
+
+  const[events, setEvents] = useState([]);
+  const getEvents = async () => {
+    if (cookies.loggedInUserId != null) {
+      await fetch("http://localhost:8080/event/all")
+        .then((response) => response.json())
+        .then((data) => setEvents(data));
+    }
+  }
+  useEffect(()=>getEvents(), []);
+  console.log(events);
+  //events/all
+
 
   return (
     <BrowserRouter>
@@ -79,7 +104,7 @@ function App() {
             <div className={'Main'}>
               <Main navbarLightMode={navbarLightMode}></Main>
               {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
-              <Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>
+              {/*<Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>*/}
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>}>
@@ -93,12 +118,20 @@ function App() {
           }></Route>
           <Route path={'/account'} element={
             <div className={'Main'}>
-              <Account navbarLightMode={navbarLightMode}></Account>
+              <Account loggedInUser={loggedInUser} navbarLightMode={navbarLightMode}></Account>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
           }></Route>
-          <Route path={'/event'} element={
+          <Route path={'/events'} element={
+            <div className={'Main'}>
+              <Events events={events} navbarLightMode={navbarLightMode}></Events>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }>
+          </Route>
+          <Route path={'/event/:id'} element={
               <div className={'Main'}>
                 <Event navbarLightMode={navbarLightMode}></Event>
                 <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
@@ -106,6 +139,7 @@ function App() {
               </div>
             }>
           </Route>
+          <Route path={'/events'}></Route>
           <Route path={'/privacy-policy'} element={
             <div className={'Main'}>
               <PrivacyPolicy navbarLightMode={navbarLightMode}></PrivacyPolicy>

@@ -4,7 +4,7 @@ import Article from '../Article/Article';
 import  Aos from "aos";
 import "aos/dist/aos.css";
 
-const Articles = ({navbarLightMode, articles}) => {
+const Articles = ({navbarLightMode, events}) => {
 
   useEffect(() => {
     Aos.init({duration: 1000});
@@ -17,9 +17,9 @@ const Articles = ({navbarLightMode, articles}) => {
         <p data-aos={"fade-up"}>CHOOSE YOUR FAVOURITE ARTICLE</p>
       </div>
       <div className={'articles-list'}>
-        {articles.length > 0 &&
-        articles.map((article) => <Article navbarLightMode={navbarLightMode} article={article} /> )}
-        {!(articles.length > 0) && <div>Lodaing...</div>}
+        {events.length > 0 &&
+        events.map((socialEvent) => <Article navbarLightMode={navbarLightMode} key={socialEvent.id} socialEvent={socialEvent} /> )}
+        {!(events.length > 0) && <div>Lodaing...</div>}
       </div>
     </div>
   )
