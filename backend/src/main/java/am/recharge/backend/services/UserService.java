@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Random;
@@ -124,6 +125,9 @@ public class UserService {
                 .grad(grad)
                 .points(0)
                 .verified(verified)
+                .eventsInterested(new ArrayList<String>())
+                .eventsCreated(new ArrayList<String>())
+                .grade(0.00)
                 .build();
 
         try { return userRepository.save(savedUser); }
