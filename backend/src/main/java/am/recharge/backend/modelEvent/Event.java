@@ -27,6 +27,7 @@ public class Event {
     private Boolean verified;
     private String userID;
     private String description;
+    private String code;
 
     public Event(String title, LocalDateTime time, String address, String city, int points, Boolean verified, String userID, String description) {
         this.title = title;
@@ -40,6 +41,15 @@ public class Event {
         this.verified = verified;
         this.userID = userID;
         this.description = description;
+        this.code = "RANDOMKURAC";
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDescription() {
