@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -132,5 +129,43 @@ public class UserService {
 
         try { return userRepository.save(savedUser); }
         catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
+    }
+
+    public User addEventInterested(String id, String eventID) {
+        Optional<User> userF = userRepository.findById(id);
+
+        if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        User user = userF.get();
+
+        List<String> listEventInterested = user.getEventsInterested();
+        listEventInterested.add(eventID);
+        user.setEventsInterested(listEventInterested);
+
+        try { return userRepository.save(user); }
+        catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
+    }
+
+    public User addEventCreated(String id, String eventID) {
+        Optional<User> userF = userRepository.findById(id);
+
+        if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        User user = userF.get();
+
+        List<String> listEventCreated = user.getEventsCreated();
+        listEventCreated.add(eventID);
+        user.setEventsCreated(listEventCreated);
+
+        try { return userRepository.save(user); }
+        catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
+    }
+
+    public User findUserByID (String id) {
+        Optional<User> userF = userRepository.findById(id);
+
+        if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        return userF.get();
     }
 }
