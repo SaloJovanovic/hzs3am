@@ -1,5 +1,7 @@
 package am.recharge.backend.services;
 
+import am.recharge.backend.modules.LoginCreds;
+import am.recharge.backend.modules.LoginInfo;
 import am.recharge.backend.modules.User;
 import am.recharge.backend.repositories.EmailVerifyRepository;
 import am.recharge.backend.repositories.UserRepository;
@@ -167,5 +169,50 @@ public class UserService {
         if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
         return userF.get();
+    }
+
+    public LoginCreds loginByUsernameOrEmail (LoginInfo loginInfo) {
+        Optional<User> user;
+        String logInfo = loginInfo.getLogInfo().trim().toLowerCase(Locale.ROOT);
+        String logPassword = loginInfo.getPassword().trim();
+
+        if (logInfo.contains("@"))
+            user = userRepository.findByEmail(logInfo);
+        else
+            user = userRepository.findByUsername(logInfo);
+
+        LoginCreds loginCreds;
+
+        if (!user.isPresent()) {
+            loginCreds = LoginCreds.builder()
+                    .id(null)
+                    .success(false)
+                    .username(null)
+                    .email(null)
+                    .build();
+            return loginCreds;
+        }
+
+        User foundUser = user.get();
+        String logPasswordHashed = PasswordHashing.doHashing(logPassword);
+
+        if (logPasswordHashed.compareTo(foundUser.getPassword()) == 0) {
+            loginCreds = LoginCreds.builder()
+                    .id(foundUser.getId())
+                    .success(true)
+                    .username(foundUser.getUsername())
+                    .email(foundUser.getEmail())
+                    .build();
+        }
+        else {
+            loginCreds = LoginCreds.builder()
+                    .id(null)
+                    .success(false)
+                    .username(null)
+                    .email(null)
+                    .build();
+        }
+
+        return loginCreds;
     }
 }

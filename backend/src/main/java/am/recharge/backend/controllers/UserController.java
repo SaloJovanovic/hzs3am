@@ -1,5 +1,7 @@
 package am.recharge.backend.controllers;
 
+import am.recharge.backend.modules.LoginCreds;
+import am.recharge.backend.modules.LoginInfo;
 import am.recharge.backend.modules.User;
 import am.recharge.backend.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -38,5 +40,10 @@ public class UserController {
     @GetMapping("/findByID")
     public User findUserByID (@RequestParam String id) {
         return userService.findUserByID(id);
+    }
+
+    @PostMapping("/login")
+    public LoginCreds loginByUsernameOrEmail (@RequestBody LoginInfo loginInfo) {
+        return userService.loginByUsernameOrEmail(loginInfo);
     }
 }
