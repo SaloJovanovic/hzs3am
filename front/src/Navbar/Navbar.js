@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Navbar.css';
 import {BrowserRouter, Link} from 'react-router-dom';
-import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, BsFillMoonFill, IoLogoCss3, BsSun} from "react-icons/all";
+import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, BsFillMoonFill, IoLogoCss3, BsSun, GiLightningHelix, SiHomeassistant, MdOutlineEmojiPeople, HiUser} from "react-icons/all";
 
 const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
   // const[navbarLightMode, setNavbarLightMode] = useState(false);
@@ -35,29 +35,29 @@ const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
       <ul className={'navbar-nav'}>
         <li className={'logo'}>
           <Link className={'nav-link'} to={'/'}>
-            <span className={'link-text'}>Fireship</span>
-            <IoLogoWindows className={'icon'}></IoLogoWindows>
+            <span className={'link-text'}>RECHARGE</span>
+            <GiLightningHelix className={'icon'}></GiLightningHelix>
           </Link>
         </li>
 
         <li className={'nav-item'}>
           <Link className={'nav-link'} to={'/'}>
-            <FaCat className={'icon'}></FaCat>
-            <span className={'link-text'}>Cats</span>
+            <SiHomeassistant className={'icon'}></SiHomeassistant>
+            <span className={'link-text'}>Početna</span>
           </Link>
         </li>
 
         <li className={'nav-item'}>
           <Link className={'nav-link'} to={'/'}>
-            <RiAliensFill className={'icon'}></RiAliensFill>
-            <span className={'link-text'}>Aliens</span>
+            <MdOutlineEmojiPeople className={'icon'}></MdOutlineEmojiPeople>
+            <span className={'link-text'}>Dešavanja</span>
           </Link>
         </li>
 
         <li className={'nav-item'}>
           <Link className={'nav-link'} to={'/login'}>
-            <AiFillRocket className={'icon'}></AiFillRocket>
-            <span className={'link-text'}>Space</span>
+            <HiUser className={'icon'}></HiUser>
+            <span className={'link-text'}>Nalog</span>
           </Link>
         </li>
 

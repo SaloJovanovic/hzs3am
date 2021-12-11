@@ -42,7 +42,7 @@ function App() {
           <Route path={'/'} element= {
             <div className={'Main'}>
               <Main navbarLightMode={navbarLightMode}></Main>
-              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
               <Articles articles={articles} navbarLightMode={!navbarLightMode}></Articles>
               <Wave waveType={2} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={navbarLightMode}></Footer>
