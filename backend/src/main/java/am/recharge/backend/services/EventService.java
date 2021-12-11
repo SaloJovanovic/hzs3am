@@ -43,12 +43,14 @@ public class EventService {
         }
         return es;
     }
+    
     public Event createEvent (EventInfo eventInfo, String userID) {
         User u = userRepository.findById(userID).orElse(null);
         Event e = new Event(eventInfo.getTitle(), eventInfo.getTime(), eventInfo.getAdress(), eventInfo.getCity(), eventInfo.getPoints(),u.isVerified(), userID);
         eventRepository.insert(e);
         return e;
     }
+
     public Event putAViewOnEvent(String eventID){
         Event e = eventRepository.findById(eventID).orElse(null);
         e.setViews(e.getViews()+1);

@@ -26,7 +26,7 @@ const Footer = ({navbarLightMode}) => {
         <h3>Support</h3>
         <Link to={'/'} className={'link'}>Contact Us</Link>
         <Link to={'/'} className={'link'}>FAQ</Link>
-        <Link to={'/'} className={'link'}>Privacy Policy</Link>
+        <Link to={'/privacy-policy'} className={'link'}>Privacy Policy</Link>
       </div>
       <div data-aos={"fade-up"} className={'navigate footer-element'}>
         <h3>Navigate</h3>

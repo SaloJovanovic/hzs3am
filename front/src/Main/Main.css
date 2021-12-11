@@ -133,3 +133,9 @@
     transition: all ease 0.5s;
     color: #3d2514;
 }
+
+@media only screen and (max-width: 600px) {
+    .header-heading h1{
+        font-size: 3rem;
+    }
+}
