@@ -55,4 +55,9 @@ public class EventController {
     public Event putEventViewAdd(@RequestParam String eventID,@RequestParam String userID){
         return eventService.putUserInterested(eventID,userID);
     }
+    @CrossOrigin
+    @GetMapping("/all")
+    public List<Event> putEventViewAdd(){
+        return eventService.getAllEvents();
+    }
 }

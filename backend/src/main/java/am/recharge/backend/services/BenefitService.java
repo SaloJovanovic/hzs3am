@@ -11,6 +11,10 @@ import am.recharge.backend.modelEvent.*;
 import am.recharge.backend.modules.*;
 import am.recharge.backend.repositories.*;
 import am.recharge.backend.services.*;
+
+@AllArgsConstructor
+@Service
+@Slf4j
 public class BenefitService {
 
 }
