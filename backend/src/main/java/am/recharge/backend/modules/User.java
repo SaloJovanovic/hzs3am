@@ -22,9 +22,10 @@ public class User {
     private LocalDate datumRodjenja;
     private LocalDate datumKreiranja;
 
-    private boolean verified;
     private String adresa;
+    private String grad;
     private int points;
+    private boolean verified;
 
     //Napraviti EVENT
 }
