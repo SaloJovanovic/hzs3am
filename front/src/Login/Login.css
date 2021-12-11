@@ -109,6 +109,11 @@
     margin: 5px;
 }
 
-@media only screen and (max-width: 600px) {
+.error {
+    display: none;
+}
 
+.error.active {
+    color: red !important;
+    display: flex;
 }

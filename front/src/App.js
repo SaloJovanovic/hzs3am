@@ -10,14 +10,18 @@ import PrivacyPolicy from  "./PrivacyPolicy/PrivacyPolicy"
 import * as path from "path";
 import Articles from "./Articles/Articles";
 import Account from "./Account/Account";
+import Event from "./Event/Event";
+import {useCookies} from "react-cookie";
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
 
   const[navbarLightMode, setNavbarLightMode] = useState(true);
 
   class Article {
-    constructor(id, title, subtitle, type) {
-      this.id = id
+    constructor(id, usersInterested, title, subtitle, type) {
+      this.id = id;
+      this.usersInterested = usersInterested;
       this.title = title;
       this.subtitle = subtitle;
       this.type = type;
@@ -25,13 +29,43 @@ function App() {
 
   }
   const articles = [
-    new Article(1, "Burger", "Opis burgera", "food"),
-    new Article(2, "Pizza", "Opis pizze", "food"),
-    new Article(3, "Coca-cola", "Opis Coca-cole", "drink"),
-    new Article(4, "Fanta", "Opis Fante", "drink"),
-    new Article(5, "Sopska salata", "Opis sopske salate", "salad"),
-    new Article(5, "Kupus salata", "Opis kupus salate", "salad")
+    new Article(1, 15, "Burger", "Opis burgera", "sport"),
+    new Article(2, 23, "Pizza", "Opis pizze", "food"),
+    new Article(3, 8, "Coca-cola", "Opis Coca-cole", "drink"),
+    new Article(4, 15, "Fanta", "Opis Fante", "drink"),
+    new Article(5, 12, "Sopska salata", "Opis sopske salate", "salad"),
+    new Article(5, 34, "Kupus salata", "Opis kupus salate", "salad")
   ]
+
+  const[loginError, setLoginError] = useState(false);
+
+  const login = async (user) => {
+    console.log(user)
+    const resp = await fetch( "http://localhost:8080/" + "user/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({
+        logInfo: user.username,
+        password: user.password,
+      })
+    })
+      .then((response) => response.json());
+    console.log(resp);
+    // await setLoggedInUser(resp);
+    if (resp != null && resp.success) {
+      setCookie("loggedInUserId", resp.id);
+      setCookie("loggedIn", true);
+      window.location.href='/';
+      setLoginError(false);
+      console.log("MOZEAE");
+    }
+    else {
+      setLoginError(true);
+      console.log("NEMERE");
+    }
+  }
 
   console.log(navbarLightMode);
 
@@ -52,7 +86,7 @@ function App() {
           </Route>
           <Route path={'/login'} element={
             <div className={'Main'}>
-              <Login navbarLightMode={navbarLightMode}></Login>
+              <Login loginError={loginError} setLoginError={setLoginError} onUserLogin={login} navbarLightMode={navbarLightMode}></Login>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
@@ -63,7 +97,14 @@ function App() {
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
-          }>
+          }></Route>
+          <Route path={'/event'} element={
+              <div className={'Main'}>
+                <Event navbarLightMode={navbarLightMode}></Event>
+                <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+                <Footer navbarLightMode={!navbarLightMode}></Footer>
+              </div>
+            }>
           </Route>
           <Route path={'/privacy-policy'} element={
             <div className={'Main'}>
