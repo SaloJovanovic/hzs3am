@@ -26,8 +26,9 @@ public class Event {
     private int points;
     private Boolean verified;
     private String userID;
+    private String description;
 
-    public Event(String title, LocalDateTime time, String address, String city, int points, Boolean verified, String userID) {
+    public Event(String title, LocalDateTime time, String address, String city, int points, Boolean verified, String userID, String description) {
         this.title = title;
         this.time = time;
         this.address = address;
@@ -38,6 +39,15 @@ public class Event {
         this.points = points;
         this.verified = verified;
         this.userID = userID;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUserID() {
