@@ -10,6 +10,7 @@ import PrivacyPolicy from  "./PrivacyPolicy/PrivacyPolicy"
 import * as path from "path";
 import Articles from "./Articles/Articles";
 import Account from "./Account/Account";
+import Register from "./Register/Register";
 import Event from "./Event/Event";
 import {useCookies} from "react-cookie";
 
@@ -17,6 +18,7 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
 
   const[navbarLightMode, setNavbarLightMode] = useState(true);
+  const BACKEND_URL = "http://localhost:8080/";
 
   class Article {
     constructor(id, usersInterested, title, subtitle, type) {
@@ -69,6 +71,42 @@ function App() {
 
   console.log(navbarLightMode);
 
+  const onUserCreated = async (user) => {
+    console.log(user);
+    const result = await fetch(BACKEND_URL + "user/create-new?code=" + user.code, {
+      method: "POST",
+      body: JSON.stringify({
+        ime: user.ime,
+        prezime: user.prezime,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        datumRodjenja: user.datumRodjenja,
+        adresa: user.adresa,
+        grad: user.grad
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      }
+    });
+
+    if(result.status === 200){
+      //nesto
+      console.log("brrrrr 200")
+    } else if (result.status===403){
+      //NESTO DRUGO
+      console.log("brrrrr 403")
+
+    }
+  }
+
+  const userVerification = async (email) => {
+    await fetch(BACKEND_URL + "user/verification?email=" + email, {
+        method: "POST"
+      }
+    )
+  }
+
 
   return (
     <BrowserRouter>
@@ -87,6 +125,13 @@ function App() {
           <Route path={'/login'} element={
             <div className={'Main'}>
               <Login loginError={loginError} setLoginError={setLoginError} onUserLogin={login} navbarLightMode={navbarLightMode}></Login>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/register'} element={
+            <div className={'Main'}>
+              <Register navbarLightMode={navbarLightMode} verifyUser={userVerification} createUser={onUserCreated}></Register>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>

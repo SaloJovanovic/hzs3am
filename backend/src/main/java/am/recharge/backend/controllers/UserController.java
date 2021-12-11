@@ -15,7 +15,8 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/verification")
-    public String sendVerificationEmail(@RequestParam String email) {
+    public String
+    sendVerificationEmail(@RequestParam String email) {
         return userService.sendVerificationEmail(email);
     }
 
