@@ -87,7 +87,6 @@ public class UserService {
         LocalDate datumRodjenja = userBody.getDatumRodjenja();
         LocalDate datumKreiranja = LocalDate.now();
 
-        boolean verified = userBody.isVerified();
         String adresa = userBody.getAdresa().trim();
         String grad = userBody.getGrad().trim();
 
@@ -123,7 +122,7 @@ public class UserService {
                 .adresa(adresa)
                 .grad(grad)
                 .points(0)
-                .verified(verified)
+                .verified(false)
                 .eventsInterested(new ArrayList<String>())
                 .eventsCreated(new ArrayList<String>())
                 .grade(0.00)
@@ -214,5 +213,17 @@ public class UserService {
         }
 
         return loginCreds;
+    }
+
+    public User verifyUserByID (String id) {
+        Optional<User> userF = userRepository.findById(id);
+
+        if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        User user = userF.get();
+        user.setVerified(true);
+
+        try { return userRepository.save(user); }
+        catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
     }
 }

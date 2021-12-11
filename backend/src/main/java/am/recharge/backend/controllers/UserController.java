@@ -46,4 +46,9 @@ public class UserController {
     public LoginCreds loginByUsernameOrEmail (@RequestBody LoginInfo loginInfo) {
         return userService.loginByUsernameOrEmail(loginInfo);
     }
+
+    @PutMapping("/verify-user")
+    public User verifyUserByID (@RequestParam String id) {
+        return userService.verifyUserByID(id);
+    }
 }
