@@ -6,6 +6,7 @@ import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Wave from "./Wave/Wave";
 import Login from "./Login/Login";
+import PrivacyPolicy from  "./PrivacyPolicy/PrivacyPolicy"
 import * as path from "path";
 import Articles from "./Articles/Articles";
 import Account from "./Account/Account";
@@ -64,6 +65,13 @@ function App() {
             </div>
           }>
           </Route>
+          <Route path={'/privacy-policy'} element={
+            <div className={'Main'}>
+              <PrivacyPolicy navbarLightMode={navbarLightMode}></PrivacyPolicy>
+              <Wave waveType={2} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={navbarLightMode}></Footer>
+            </div>
+          }></Route>
         </Routes>
       </div>
     </BrowserRouter>
