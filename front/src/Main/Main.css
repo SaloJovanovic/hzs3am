@@ -1,0 +1,123 @@
+.mainContainer {
+    background: var(--bg-main);
+}
+
+.mainContainer.lightMode {
+    background: white;
+}
+
+.mainContainer.lightMode h3 {
+    color: black;
+}
+
+.mainContainer span {
+    color: #bf2222;
+}
+
+.mainContainer.lightMode span {
+    border-bottom: 2px solid black;
+}
+
+.mainContainer.lightMode h1 {
+    color: black;
+}
+
+.mainContainer.lightMode p {
+    color: black;
+}
+
+#main{
+    /*background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);*/
+    background-repeat: no-repeat;
+    transition: all linear 0.5s;
+    min-height: 70vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /*display: flex;*/
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    width:100%;
+    /*height: 1000px;*/
+    /*position: relative;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-heading{
+    font-family: 'Montserrat';
+    /*width: 100%;*/
+    /*position: relative;*/
+    /*left: 25%;*/
+    /*text-align: left;*/
+    max-width: 900px;
+    text-align: center;
+}
+.header-heading span{
+    font-family: 'Alfa Slab One';
+    /*color: #bf2222;*/
+    /*border-bottom: 2px solid #3d2514;*/
+    border-bottom: 2px solid #ffffff;
+}
+.header-heading .details{
+    font-size: 23px;
+    /*color: #181818;*/
+    color: #ffffff;
+}
+.header-heading h3{
+    font-family:'Bebas Neue';
+    font-size: 1.6rem;
+    margin:0px;
+    letter-spacing: 2px;
+    /*color:#3d2514;*/
+    color:#ffffff;
+}
+.header-heading h1{
+    font-family:'Alfa Slab One';
+    font-size: 4rem;
+    margin:0px;
+    letter-spacing: 2px;
+    /*color:#3d2514;*/
+    color:#ffffff;
+}
+.header-btns{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin-top: 40px;
+}
+.btn {
+    padding: 0 10px 0 10px;
+    height: 50px;
+    display: flex;
+    text-decoration: none !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-family:'Lato';
+    text-decoration: none;
+    background-color: #bf2222;
+    box-shadow: 5px 10px 30px rgba(255, 2, 2, 0.336);
+    border-radius: 5px;
+    color:#ffffff;
+    border: 2px solid #bf2222;
+}
+.btn:hover {
+    background-color: transparent;
+    transition: all ease 0.5s;
+    color: white;
+}
+
+.mainContainer.lightMode .btn:hover {
+    color: var(--bg-primary);
+}
+
+.header-btn:hover{
+    background-color: transparent;
+    transition: all ease 0.5s;
+    color: #3d2514;
+}

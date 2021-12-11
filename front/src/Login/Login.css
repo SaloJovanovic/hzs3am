@@ -1,0 +1,114 @@
+.login-container {
+    padding-top: 30px;
+    width: 100%;
+    background-color: var(--bg-main);
+    min-height: 70vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    transition: all linear 0.5s;
+}
+
+.login-container.lightMode {
+    background-color: white;
+}
+
+.login-container.lightMode .container{
+    background-color: var(--bg-primary);
+}
+
+.login-container.lightMode .brand-title{
+    color: white;
+}
+
+.login-container.lightMode p {
+    color: white;
+}
+
+.login-container.lightMode input {
+    background-color: var(--bg-primary);
+    border: 2px solid white;
+    color: white;
+}
+
+.login-container.lightMode label {
+    color: white;
+    background-color: var(--bg-primary);
+}
+
+.login-container .link {
+    color: var(--lighter-red-color);
+    text-decoration: none;
+}
+
+.login-container .container {
+    margin: 0 10px 0 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form input {
+    margin: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    width: 50%;
+    min-width: 150px;
+    border: 2px solid var(--bg-main);
+}
+
+.form label {
+    background-color: white;
+    font-size: 14px;
+    margin-left: -35%;
+    z-index: 1;
+    margin-top: 10px;
+    margin-bottom: -30px;
+    transition: all linear 0.1s;
+}
+
+.form .selected {
+    margin-bottom: -10px;
+    font-size: 10px;
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form .btn {
+    margin-bottom: 10px;
+}
+
+.form .btn:hover {
+    color: var(--bg-primary);
+}
+
+.form.lightMode .btn:hover {
+    color: white;
+}
+
+.form p {
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+
+}

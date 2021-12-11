@@ -1,0 +1,24 @@
+.wave {
+    background-color: var(--bg-main);
+    transition: all linear 0.5s;
+}
+
+.wave svg {
+    margin-bottom: -5px;
+    margin-top: -5px;
+    transition: all linear 0.5s;
+}
+
+.wave.lightMode {
+    background-color: white;
+}
+
+.between-waves {
+    height: auto;
+    width: 100%;
+    background-color: var(--wave-color-light);
+}
+
+.between-waves.lightMode {
+    background-color: var(--bg-main);
+}

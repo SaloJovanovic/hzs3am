@@ -1,0 +1,36 @@
+.articles-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 10px 20px 10px;
+}
+
+.articles-container h1{
+    margin: 0;
+    font-size: 3em;
+}
+
+.articles-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: white;
+    transition: all linear 0.5s;
+}
+
+.articles-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: var(--bg-main);
+    color: white;
+    transition: all linear 0.5s;
+}
+
+.articles-container.lightMode {
+    background: white;
+    color: black;
+}

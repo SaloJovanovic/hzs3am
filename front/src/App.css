@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --wave-color-light: #f3f4f5;
+    --red-color: #bf2222;
+    --lighter-red-color: #e73333;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    /*--bg-primary: #23232e;*/
+    --bg-primary: #29292a;
+    --bg-secondary: #141418;
+    --bg-main: #1a1a1a;
+    --transition-speed: 600ms;
+}
+
+::-webkit-scrollbar-track {
+    background: #dc3545 !important;
+}
+
+.Main {
+    margin-left: 5rem;
+    /*padding: 1rem;*/
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Main {
+        margin: 0;
+    }
+}

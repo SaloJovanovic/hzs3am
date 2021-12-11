@@ -1,0 +1,75 @@
+.article-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: gray;
+    height: 150px;
+    display: flex;
+    transition: all linear 0.5s;
+}
+
+.article-container.lightMode {
+    color: white !important;
+}
+
+.article-container.lightMode .col30 {
+    color: white;
+    background-color: var(--bg-primary);
+}
+
+#food .col70{
+    background-color: var(--red-color) !important;
+}
+
+#drink .col70{
+    background-color: blue !important;
+}
+
+#salad .col70 {
+    background-color: green !important;
+}
+
+.article-container .col30 {
+    border-radius: 10px 0 0 10px ;
+    background-color: white;
+    font-size: 30px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 30%;
+}
+
+.article-container .col30 h2 {
+    width: 100%;
+}
+
+.article-container .col70 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    width: 70%;
+    border-radius: 0 10px 10px 0;
+    background-color: gray;
+}
+
+.col70 .title {
+    font-size: 25px;
+    width: 50%;
+}
+
+.col70 .subtitle {
+    font-size: 15px;
+}
+
+.col70 .iconn {
+    width: 50%;
+}
+
+.col70 svg {
+    width: 50%;
+    height: 50%;
+}
