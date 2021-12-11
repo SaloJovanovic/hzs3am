@@ -126,7 +126,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
           <div className={'inputs'}>
             <label className={imeSelected ? 'selected' : ''}>Ime:</label>
             <input className={imeInp == 'error' ? 'form input ime-input error' : 'form input ime-input'} type={'text'}
-                   placeholder={imeInp == 'error' ? 'Must have less than 20 characters' : 'First name'} value={ime}
+                   placeholder={imeInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Ime'} value={ime}
                    onChange={(event) => {
                      setIme(event.target.value)
                    }}
@@ -138,7 +138,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={prezimeSelected ? 'selected' : ''}>Prezime:</label>
             <input className={prezimeInp == 'error' ? 'form input prezime-input error' : 'form input prezime-input'}
-                   type={'text'} placeholder={prezimeInp == 'error' ? 'Must have less than 20 characters' : 'Last name'}
+                   type={'text'} placeholder={prezimeInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Prezime'}
                    value={prezime}
                    onChange={(event) => {
                      setPrezime(event.target.value)
@@ -151,7 +151,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={usernameSelected ? 'selected' : ''}>Username:</label>
             <input className={usernameInp == 'error' ? 'form input username-input error' : 'form input username-input'}
-                   type={'text'} placeholder={usernameInp == 'error' ? 'Must have less than 20 characters' : 'Username'}
+                   type={'text'} placeholder={usernameInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Korisničko ime'}
                    value={username}
                    onChange={(event) => {
                      setUsername(event.target.value)
@@ -164,7 +164,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={emailSelected ? 'selected' : ''}>Email:</label>
             <input className={emailInp == 'error' ? 'form input email-input error' : 'form input email-input'}
-                   type={'text'} placeholder={emailInp == 'error' ? 'Must have less than 64 characters' : 'Email'}
+                   type={'text'} placeholder={emailInp == 'error' ? 'Unesi manje od 64 karaktera' : 'Mejl'}
                    value={email}
                    onChange={(event) => {
                      setEmail(event.target.value)
@@ -178,7 +178,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
             <label className={passwordSelected ? 'selected' : ''}>Password:</label>
             <input className={passwordInp == 'error' ? 'form input password-input error' : 'form input passord-input'}
                    type={'password'}
-                   placeholder={passwordInp == 'error' ? 'Must have less than 20 characters' : 'Password'}
+                   placeholder={passwordInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Sifra'}
                    value={password}
                    onChange={(event) => {
                      setPassword(event.target.value)
@@ -191,7 +191,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={adresaSelected ? 'selected' : ''}>Adresa:</label>
             <input className={adresaInp == 'error' ? 'form input adresa-input error' : 'form input adresa-input'}
-                   type={'text'} placeholder={adresaInp == 'error' ? 'Los format' : 'Adresa'} value={adresa}
+                   type={'text'} placeholder={adresaInp == 'error' ? 'Loš format' : 'Adresa'} value={adresa}
                    onChange={(event) => {
                      setAdresa(event.target.value)
                    }}
@@ -203,7 +203,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={gradSelected ? 'selected' : ''}>Grad:</label>
             <input className={gradInp == 'error' ? 'form input grad-input error' : 'form input grad-input'}
-                   type={'text'} placeholder={gradInp == 'error' ? 'Must have less than 20 characters' : 'Grad'}
+                   type={'text'} placeholder={gradInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Grad'}
                    value={grad}
                    onChange={(event) => {
                      setGrad(event.target.value)
@@ -218,7 +218,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
             <input
               className={datumRodjenjaInp == 'error' ? 'form input datumRodjenja-input error' : 'form input datumRodjenja-input'}
               type={'date'}
-              placeholder={datumRodjenjaInp == 'error' ? 'Must have less than 20 characters' : 'Datum Rodjenja'}
+              placeholder={datumRodjenjaInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Datum rodjenja'}
               value={datumRodjenja}
               onChange={(event) => {
                 setDatumRodjenja(event.target.value)
