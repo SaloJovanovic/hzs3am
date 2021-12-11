@@ -1,36 +1,48 @@
 .mainContainer {
-    background: var(--bg-main);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.15)), url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.mainContainer.lightMode {
-    background: white;
+.login-register {
+    z-index: 5;
+    position: fixed;
+    margin: 10px;
+    top: 0;
+    right: 0;
 }
 
-.mainContainer.lightMode h3 {
-    color: black;
+/*.mainContainer.lightMode {*/
+/*    background-image: url("../images/bg.jpg");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*}*/
+
+.mainContainer .btn:hover {
+    color: white !important;
 }
+
+/*.mainContainer.lightMode h3 {*/
+/*    color: black;*/
+/*}*/
 
 .mainContainer span {
-    color: #bf2222;
+    color: var(--green-color);
 }
 
-.mainContainer.lightMode span {
-    border-bottom: 2px solid black;
-}
+/*.mainContainer.lightMode h1 {*/
+/*    color: black;*/
+/*}*/
 
-.mainContainer.lightMode h1 {
-    color: black;
-}
-
-.mainContainer.lightMode p {
-    color: black;
-}
+/*.mainContainer.lightMode p {*/
+/*    color: black;*/
+/*}*/
 
 #main{
     /*background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);*/
     background-repeat: no-repeat;
     transition: all linear 0.5s;
-    min-height: 70vh;
+    min-height: 100vh;
     position: relative;
     width: 100%;
     display: flex;
@@ -100,11 +112,11 @@
     font-size: 1.4rem;
     font-family:'Lato';
     text-decoration: none;
-    background-color: #bf2222;
-    box-shadow: 5px 10px 30px rgba(255, 2, 2, 0.336);
+    background-color: var(--green-color);
+    box-shadow: 5px 10px 30px rgba(48, 255, 2, 0.33);
     border-radius: 5px;
     color:#ffffff;
-    border: 2px solid #bf2222;
+    border: 2px solid var(--green-color);
 }
 .btn:hover {
     background-color: transparent;
