@@ -129,6 +129,7 @@ public class UserService {
                 .eventsInterested(new ArrayList<String>())
                 .eventsCreated(new ArrayList<String>())
                 .grade(0.00)
+                .numberGrades(0)
                 .build();
 
         try { return userRepository.save(savedUser); }

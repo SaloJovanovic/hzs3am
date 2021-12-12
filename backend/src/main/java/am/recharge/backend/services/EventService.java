@@ -79,5 +79,11 @@ public class EventService {
         eventRepository.save(e);
         return e;
     }
-
+    public User putUserGrade(String userID, double ocena){
+        User u = userRepository.findById(userID).orElse(null);
+        u.setGrade((u.getGrade()*u.getNumberGrades()+ocena)/(u.getNumberGrades()+1));
+        u.setNumberGrades(u.getNumberGrades()+1);
+        User savedUser = userRepository.save(u);
+        return savedUser;
+    }
 }
