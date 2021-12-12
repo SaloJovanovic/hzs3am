@@ -15,6 +15,7 @@ import Event from "./Event/Event";
 import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 import About from "./About/About";
+import EventsChoice from "./EventsChoice/EventsChoice";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -125,6 +126,9 @@ function App() {
     }
   }
 
+  console.log("SUMPOR TI");
+  console.log(events);
+
   const userVerification = async (email) => {
     await fetch(BACKEND_URL + "user/verification?email=" + email, {
         method: "POST"
@@ -150,6 +154,13 @@ function App() {
           <Route path={'/login'} element={
             <div className={'Main'}>
               <Login loginError={loginError} setLoginError={setLoginError} onUserLogin={login} navbarLightMode={navbarLightMode}></Login>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/events-choice'} element={
+            <div className={'Main'}>
+              <EventsChoice navbarLightMode={navbarLightMode}></EventsChoice>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>

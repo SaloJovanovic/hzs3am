@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Navbar.css';
 import {BrowserRouter, Link} from 'react-router-dom';
-import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, BsFillMoonFill, IoLogoCss3, BsSun, GiLightningHelix, SiHomeassistant, MdOutlineEmojiPeople, HiUser} from "react-icons/all";
+import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, BsPlusCircleFill, BsFillMoonFill, IoLogoCss3, BsSun, GiLightningHelix, SiHomeassistant, MdOutlineEmojiPeople, HiUser} from "react-icons/all";
 import {useCookies} from "react-cookie";
 
 const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
@@ -49,7 +49,7 @@ const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
         </li>
 
         <li className={'nav-item'}>
-          <Link className={'nav-link'} to={'/'}>
+          <Link className={'nav-link'} to={'/events-choice'}>
             <MdOutlineEmojiPeople className={'icon'}></MdOutlineEmojiPeople>
             <span className={'link-text'}>Dešavanja</span>
           </Link>

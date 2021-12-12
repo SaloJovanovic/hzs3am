@@ -5,3 +5,12 @@
 .small-icon.dont {
     display: none;
 }
+
+.err {
+    display: none;
+}
+
+.err.active {
+    display: flex;
+    color: red !important;
+}

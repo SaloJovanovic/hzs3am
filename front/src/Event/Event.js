@@ -65,9 +65,12 @@ const Event = ({navbarLightMode}) => {
     //event/getting-viewed?eventID={}&user
   }
 
+  const[interestedError, setInterestedError] = useState(false);
   const setInterested = async () => {
-    if (socialEvent.userI.includes(user.id))
+    if (socialEvent.userI.includes(user.id)) {
+      setInterestedError(true);
       return
+    }
 
     console.log();
     const result = await fetch( "http://localhost:8080/event/getting-interested?eventID=" + eventId.id + "&userID=" + user.id, {
@@ -79,10 +82,12 @@ const Event = ({navbarLightMode}) => {
 
     if(result.status === 200){
       //nesto
+      setInterestedError(false);
       console.log("brrrrr aaa 200")
       setNumInterested1(numInterested1 + 1)
     } else if (result.status===403){
       //NESTO DRUGO
+      setInterestedError(true);
       console.log("brrrrr 403")
 
     }
@@ -94,7 +99,7 @@ const Event = ({navbarLightMode}) => {
   body {
   userID
   eventID
-  code: 9ca3c471307d
+  code: 51e22ceb2655
   }
    */
   const gettingViewed = async (userId) => {
@@ -117,10 +122,13 @@ const Event = ({navbarLightMode}) => {
   }
 
   const[code, setCode] = useState();
+  const[codeError, setCodeError] = useState(false);
 
   const putCode = async (bodi) => {
-    if (!socialEvent.userI.includes(user.id))
+    if (!socialEvent.userI.includes(user.id)) {
+      setCodeError(true)
       return
+    }
     console.log(bodi);
     const result = await fetch("http://localhost:8080/user/add-points", {
       method: "PUT",
@@ -137,10 +145,11 @@ const Event = ({navbarLightMode}) => {
     if(result.status === 200){
       //nesto
       console.log("brrrrr asjdfojas 200")
+      setCodeError(false)
     } else if (result.status===403){
       //NESTO DRUGO
       console.log("brrrrr asjdfojas 403")
-
+      setCodeError(true);
     }
   }
 
@@ -163,10 +172,12 @@ const Event = ({navbarLightMode}) => {
         <p>{views1} <AiFillEye className={'small-icon'}/></p>
         <p>{numInterested1} korisnik/a je zainteresovano <SiPytorchlightning className={'small-icon'}/></p>
         <button className={'btn'} onClick={setInterested}>Zainteresovan sam</button>
+        <p className={interestedError ? 'err active' : 'err'}>Vec ste zainteresovani</p>
         <input type={'text'} onChange={(event) => {
           setCode(event.target.value)
         }}/>
         <button className={'btn'} onClick={onPutCode}>KOD</button>
+        <p className={codeError ? 'err active' : 'err'}>Kod nije validan</p>
       </div>
     </div>
   )
