@@ -19,6 +19,7 @@ import About from "./About/About";
 import EventsChoice from "./EventsChoice/EventsChoice";
 import Shop from "./Shop/Shop";
 import CreateNewEvent from "./CreateNewEvent/CreateNewEvent";
+import Kontakt from "./Kontakt/Kontakt";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -265,6 +266,13 @@ function App() {
           <Route path={'/about'} element={
             <div className={'Main'}>
               <About navbarLightMode={navbarLightMode}></About>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/contact'} element={
+            <div className={'Main'}>
+              <Kontakt navbarLightMode={navbarLightMode}></Kontakt>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
