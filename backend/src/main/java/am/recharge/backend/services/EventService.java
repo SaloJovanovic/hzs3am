@@ -50,7 +50,7 @@ public class EventService {
     
     public Event createEvent (EventInfo eventInfo, String userID) {
         User u = userRepository.findById(userID).orElse(null);
-        Event e = new Event(eventInfo.getTitle(), eventInfo.getTime(), eventInfo.getAddress(), eventInfo.getCity(), eventInfo.getPoints(),u.isVerified(), userID, eventInfo.getDescription());
+        Event e = new Event(eventInfo.getTitle(), eventInfo.getTime(), eventInfo.getAddress(), eventInfo.getCity(), eventInfo.getPoints(),u.isVerified(), userID, eventInfo.getDescription(),eventInfo.isSponsored(),eventInfo.getSponsorID(),eventInfo.getBenefitID(),eventInfo.getNumberOfBenefits());
         Event savedEvent = eventRepository.insert(e);
         userService.addEventCreated(userID, savedEvent.getId());
         return e;

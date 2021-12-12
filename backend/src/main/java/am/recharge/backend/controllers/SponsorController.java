@@ -28,26 +28,32 @@ public class SponsorController {
                 .build();
     }
     @GetMapping("/allsite")
+    @CrossOrigin
     public List<Sponsor> getSiteSponsors(){
         return sponsorService.getSiteSponsor();
     }
     @GetMapping("/benefit/shop")
+    @CrossOrigin
     public List<Benefit> getBenefitShop() {
         return sponsorService.getBenefitShop();
     }
     @PostMapping("/benefit/create-new")
+    @CrossOrigin
     public Benefit createBenefit(@RequestBody BenefitInfo benInfo){
         return sponsorService.createBenefit(benInfo);
     }
     @GetMapping("/benefit/id-search")
+    @CrossOrigin
     public Benefit getBenefitById(@RequestParam String idBenefit) {
         return sponsorService.getBenefitById(idBenefit);
     }
     @GetMapping("/id-search")
+    @CrossOrigin
     public Sponsor getSponsorById(@RequestParam String idSponsor) {
         return sponsorService.getSponsorById(idSponsor);
     }
     @PostMapping("/create-new")
+    @CrossOrigin
     public Sponsor createSponsor(@RequestBody SponsorInfo sponsorInfo){
         return sponsorService.createSponsor(sponsorInfo);
     }
@@ -62,5 +68,10 @@ public class SponsorController {
             data = file.getContent().getData();
         }
         return data;
+    }
+    @GetMapping("/benefit-code")
+    @CrossOrigin
+    public String getBenefitCode(){
+        return sponsorService.getBenefitCode();
     }
 }
