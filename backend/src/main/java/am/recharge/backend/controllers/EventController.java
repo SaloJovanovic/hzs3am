@@ -61,4 +61,9 @@ public class EventController {
     public List<Event> putEventViewAdd(){
         return eventService.getAllEvents();
     }
+    @GetMapping("/city-search")
+    @CrossOrigin
+    public List<Event> getEventByCity(@RequestBody String city){
+        return eventService.getEventByCity(city);
+    }
 }

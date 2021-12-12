@@ -26,6 +26,16 @@ public class EventService {
     public List<Event> getAllEvents(){
         return eventRepository.findAll();
     }
+    public List<Event> getEventByCity(String city){
+        List<Event> es = getAllEvents();
+        List<Event> salji = new ArrayList<Event>();
+        for (Event e : es){
+            if(city.equals(e.getCity())){
+                salji.add(e);
+            }
+        }
+        return salji;
+    }
     public Event getEventById(String eventID){
         return eventRepository.findById(eventID).orElse(null);
     }

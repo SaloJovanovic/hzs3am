@@ -3,6 +3,9 @@ import './Event.css'
 import {HiUser, MdGrade, MdVerified, SiPytorchlightning, AiFillEye} from "react-icons/all";
 import {useParams} from "react-router-dom";
 import {useCookies} from "react-cookie";
+import GoogleMapReact from "google-map-react";
+import MyMarker from "./MyMarker";
+import Geocode from "react-geocode";
 
 const Event = ({navbarLightMode}) => {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -31,7 +34,9 @@ const Event = ({navbarLightMode}) => {
   const[address1, setAddress1] = useState("");
   const[city1, setCity1] = useState("");
   const[numInterested1, setNumInterested1] = useState(-1);
-  const[views1, setViews1] = useState(0);
+  const[views1, setViews1] = useState(0)
+  const[LAT, setLAT] = useState(0);
+  const[LNG, setLNG] = useState(0);;
   useEffect(async ()=> {
     if (cookies.loggedInUserId != null) {
       await fetch("http://localhost:8080/event/id-search?eventID=" + eventId.id)
@@ -160,8 +165,32 @@ const Event = ({navbarLightMode}) => {
       code: code,
     })
   }
+  const distanceToMouse = (pt, mp) => {
+    if (pt && mp) {
+      // return distance between the marker and mouse pointer
+      return Math.sqrt(
+          (pt.x - mp.x) * (pt.x - mp.x) + (pt.y - mp.y) * (pt.y - mp.y)
+      );
+    }
+  };
 
-
+  Geocode.setLanguage("sr");
+  Geocode.setRegion("RS");
+  Geocode.setApiKey("AIzaSyAzw8QoREj--LVBNP9C-XXXdoIElLMEqko");
+  Geocode.fromAddress(city1 + " " + address1).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLAT(lat);
+        setLNG(lng);
+        console.log(lat, lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+  );
+  const points = [
+    { id: 1, title: city1 + " " +address1, lat: LAT, lng: LNG}
+  ];
   return (
     <div className={navbarLightMode ? 'event-container login-container form lightMode' : 'event-container login-container form'}>
       <div className={'container'}>
@@ -178,6 +207,25 @@ const Event = ({navbarLightMode}) => {
         }}/>
         <button className={'btn'} onClick={onPutCode}>KOD</button>
         <p className={codeError ? 'err active' : 'err'}>Kod nije validan</p>
+        <div className={'map'}>
+        <GoogleMapReact
+            bootstrapURLKeys={{
+              // remove the key if you want to fork
+              key: "AIzaSyCbYGcB4JrQ-RngwulMk_LvHz7WOWdTjs8",
+              language: "en",
+              region: "RS"
+            }}
+            defaultCenter={{ lat: 44.7960922, lng: 20.4694964  }}
+            defaultZoom={15}
+            distanceToMouse={distanceToMouse}
+        >
+          {points.map(({ lat, lng, id, title }) => {
+            return (
+                <MyMarker key={id} lat={lat} lng={lng} text={id} tooltip={title} />
+            );
+          })}
+        </GoogleMapReact>
+        </div>
       </div>
     </div>
   )
