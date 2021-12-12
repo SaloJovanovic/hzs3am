@@ -17,6 +17,7 @@ import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 import About from "./About/About";
 import EventsChoice from "./EventsChoice/EventsChoice";
+import CreateNewEvent from "./CreateNewEvent/CreateNewEvent";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -127,8 +128,40 @@ function App() {
     }
   }
 
+  const onEventCreated = async (event) => {
+    console.log(event);
+    const result = await fetch(BACKEND_URL + "event/create-new?userID=" + loggedInUser.id, {
+      method: "POST",
+      body: JSON.stringify({
+        title: event.title,
+        description: event.description,
+        city: event.city,
+        address: event.address,
+        points: event.points,
+        time: event.time,
+        sponsored: false,
+        sponsorID: '',
+        benefitID: '',
+        numberOfBenefits: 0,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      }
+    });
+
+    if(result.status === 200){
+      //nesto
+      console.log("brrrrr MOZEEE 200")
+    } else if (result.status===403){
+      //NESTO DRUGO
+      console.log("brrrrr MOZEEE 403")
+
+    }
+  }
+
   console.log("SUMPOR TI");
   console.log(events);
+
 
   const userVerification = async (email) => {
     await fetch(BACKEND_URL + "user/verification?email=" + email, {
@@ -163,6 +196,13 @@ function App() {
           <Route path={'/events-choice'} element={
             <div className={'Main'}>
               <EventsChoice navbarLightMode={navbarLightMode}></EventsChoice>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/create-new-event'} element={
+            <div className={'Main'}>
+              <CreateNewEvent createEvent={onEventCreated} navbarLightMode={navbarLightMode}></CreateNewEvent>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>

@@ -1,13 +1,17 @@
 .events-choice-container .linkk {
     text-decoration: none;
-    color: black;
-}
-
-.events-choice-container.lightMode .linkk {
     color: white;
 }
 
+.events-choice-container .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .linkk {
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
