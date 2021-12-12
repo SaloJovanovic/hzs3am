@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Navbar.css';
 import {BrowserRouter, Link} from 'react-router-dom';
-import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, BsPlusCircleFill, BsFillMoonFill, IoLogoCss3, BsSun, GiLightningHelix, SiHomeassistant, MdOutlineEmojiPeople, HiUser} from "react-icons/all";
+import {FaCat, RiAliensFill, AiFillRocket, IoLogoWindows, RiMoneyDollarBoxFill, BsPlusCircleFill, BsFillMoonFill, IoLogoCss3, BsSun, GiLightningHelix, SiHomeassistant, MdOutlineEmojiPeople, HiUser} from "react-icons/all";
 import {useCookies} from "react-cookie";
 
 const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
@@ -59,6 +59,13 @@ const Navbar = ({navbarLightMode, setNavbarLightMode}) => {
           <Link className={'nav-link'} to={cookies.loggedIn ? '/account' : '/login'}>
             <HiUser className={'icon'}></HiUser>
             <span className={'link-text'}>Nalog</span>
+          </Link>
+        </li>
+
+        <li className={'nav-item'}>
+          <Link className={'nav-link'} to={'/shop'}>
+            <RiMoneyDollarBoxFill className={'icon'}></RiMoneyDollarBoxFill>
+            <span className={'link-text'}>Nagrade</span>
           </Link>
         </li>
 

@@ -17,12 +17,13 @@ import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 import About from "./About/About";
 import EventsChoice from "./EventsChoice/EventsChoice";
+import Shop from "./Shop/Shop";
 import CreateNewEvent from "./CreateNewEvent/CreateNewEvent";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
 
-  const[navbarLightMode, setNavbarLightMode] = useState(true);
+  const [navbarLightMode, setNavbarLightMode] = useState(true);
   const BACKEND_URL = "http://localhost:8080/";
 
   class Article {
@@ -44,11 +45,11 @@ function App() {
     new Article(5, 34, "Kupus salata", "Opis kupus salate", "salad")
   ]
 
-  const[loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   const login = async (user) => {
     console.log(user)
-    const resp = await fetch( "http://localhost:8080/" + "user/login", {
+    const resp = await fetch("http://localhost:8080/" + "user/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -64,11 +65,10 @@ function App() {
     if (resp != null && resp.success) {
       setCookie("loggedInUserId", resp.id);
       setCookie("loggedIn", true);
-      window.location.href='/';
+      window.location.href = '/';
       setLoginError(false);
       console.log("MOZEAE");
-    }
-    else {
+    } else {
       setLoginError(true);
       console.log("NEMERE");
     }
@@ -76,7 +76,7 @@ function App() {
 
   console.log(navbarLightMode);
 
-  const[loggedInUser, setLoggedInUser] = useState();
+  const [loggedInUser, setLoggedInUser] = useState();
   const getUser = async () => {
     if (cookies.loggedInUserId != null) {
       await fetch("http://localhost:8080/user/findByID?id=" + cookies.loggedInUserId)
@@ -84,7 +84,7 @@ function App() {
         .then((data) => setLoggedInUser(data));
     }
   }
-  useEffect(()=>getUser(), []);
+  useEffect(() => getUser(), []);
 
   console.log(loggedInUser);
 
@@ -100,7 +100,7 @@ function App() {
         });
     }
   }
-  useEffect(()=>getEvents(), []);
+  useEffect(() => getEvents(), []);
   console.log(events);
   //events/all
   const onUserCreated = async (user) => {
@@ -122,10 +122,10 @@ function App() {
       }
     });
 
-    if(result.status === 200){
+    if (result.status === 200) {
       //nesto
       console.log("brrrrr 200")
-    } else if (result.status===403){
+    } else if (result.status === 403) {
       //NESTO DRUGO
       console.log("brrrrr 403")
 
@@ -175,24 +175,30 @@ function App() {
   }
 
 
+
+
+  // useEffect(() => getRewardCode(), [])
+
+
   return (
     <BrowserRouter>
       <div className={'Body'}>
         <Navbar navbarLightMode={navbarLightMode} setNavbarLightMode={setNavbarLightMode}></Navbar>
         <Routes>
-          <Route path={'/'} element= {
+          <Route path={'/'} element={
             <div className={'Main'}>
               <Main navbarLightMode={navbarLightMode}></Main>
               {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
               {/*<Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>*/}
-              <ShopItem navbarLightMode={navbarLightMode}></ShopItem>
-              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
-              <Footer navbarLightMode={!navbarLightMode}></Footer>
+              {/*<ShopItem navbarLightMode={navbarLightMode}></ShopItem>*/}
+              {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
+              <Footer navbarLightMode={navbarLightMode}></Footer>
             </div>}>
           </Route>
           <Route path={'/login'} element={
             <div className={'Main'}>
-              <Login loginError={loginError} setLoginError={setLoginError} onUserLogin={login} navbarLightMode={navbarLightMode}></Login>
+              <Login loginError={loginError} setLoginError={setLoginError} onUserLogin={login}
+                     navbarLightMode={navbarLightMode}></Login>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
@@ -213,7 +219,8 @@ function App() {
           }></Route>
           <Route path={'/register'} element={
             <div className={'Main'}>
-              <Register navbarLightMode={navbarLightMode} verifyUser={userVerification} createUser={onUserCreated}></Register>
+              <Register navbarLightMode={navbarLightMode} verifyUser={userVerification}
+                        createUser={onUserCreated}></Register>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
@@ -231,15 +238,22 @@ function App() {
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
+          }></Route>
+          <Route path={'/shop'} element={
+            <div className={'Main'}>
+              <Shop navbarLightMode={navbarLightMode} cookies={cookies} ></Shop>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
           }>
           </Route>
           <Route path={'/event/:id'} element={
-              <div className={'Main'}>
-                <Event navbarLightMode={navbarLightMode}></Event>
-                <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
-                <Footer navbarLightMode={!navbarLightMode}></Footer>
-              </div>
-            }>
+            <div className={'Main'}>
+              <Event navbarLightMode={navbarLightMode}></Event>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }>
           </Route>
           <Route path={'/privacy-policy'} element={
             <div className={'Main'}>

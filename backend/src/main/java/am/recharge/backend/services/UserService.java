@@ -107,7 +107,8 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 
         Optional<User> userFindAttempt = userRepository.findByUsername(username);
-        if (userFindAttempt.isPresent())
+        Optional<User> userFindAttemptEmail = userRepository.findByEmail(email);
+        if (userFindAttempt.isPresent() || userFindAttemptEmail.isPresent())
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 
         if (!validateVerificationCode(email, code)) throw new ResponseStatusException(HttpStatus.FORBIDDEN);;

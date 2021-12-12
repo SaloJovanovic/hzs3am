@@ -160,7 +160,7 @@ const CreateNewEvent = ({navbarLightMode, createEvent}) => {
             }}/>
           <label className={time1Selected ? 'selected' : ''}>Vreme:</label>
           <input className={time1Inp == 'error' ? 'form input ime-input error' : 'form input ime-input'} type={'text'}
-                 placeholder={time1Inp == 'error' ? 'Unesi manje od 20 karaktera' : 'Ime'} value={time1}
+                 placeholder={time1Inp == 'error' ? 'Unesi manje od 20 karaktera' : 'Vreme'} value={time1}
                  onChange={(event) => {
                    if (event.target.value.length <= 5)
                     setTime1(event.target.value)
@@ -172,12 +172,8 @@ const CreateNewEvent = ({navbarLightMode, createEvent}) => {
                    setTime1Inp(false);
                  }}/>
           <button className={'btn'} type={'submit'} onClick={CreateNewUser} >
-            Log in
+            Napravi događaj
           </button>
-          <p>Dont have an account? <Link className={'link'} to={'/register'}>Sign up</Link></p>
-          <p>Want to create restaurant? <Link className={'link'} to={'/new-restaurant'}>Sign up as restaurant</Link></p>
-          <p>Have a restaurant on this website? <Link className={'link'} to={'/login-restaurant'}>Log in as restaurant</Link></p>
-          {/*<p className={loginError ? 'error active' : 'error'}>Netacne informacije.</p>*/}
         </div>
       </div>
     </div>
