@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.UUID;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,8 +29,13 @@ public class Event {
     private Boolean verified;
     private String userID;
     private String description;
+    private String code;
+    private boolean sponsored;
+    private String sponsorID;
+    private String benefitID;
+    private int numberOfBenefits;
 
-    public Event(String title, LocalDateTime time, String address, String city, int points, Boolean verified, String userID, String description) {
+    public Event(String title, LocalDateTime time, String address, String city, int points, Boolean verified, String userID, String description, boolean sponsored,String sponsorID,String benefitID,int numberOfBenefits) {
         this.title = title;
         this.time = time;
         this.address = address;
@@ -41,6 +47,53 @@ public class Event {
         this.verified = verified;
         this.userID = userID;
         this.description = description;
+        this.code = UUID.randomUUID().toString();
+        code = code.replace("-","");
+        code = code.substring(0,12);
+        this.sponsored = sponsored;
+        this.sponsorID = sponsorID;
+        this.benefitID = benefitID;
+        this.numberOfBenefits = numberOfBenefits;
+    }
+
+    public String getSponsorID() {
+        return sponsorID;
+    }
+
+    public void setSponsorID(String sponsorID) {
+        this.sponsorID = sponsorID;
+    }
+
+    public String getBenefitID() {
+        return benefitID;
+    }
+
+    public void setBenefitID(String benefitID) {
+        this.benefitID = benefitID;
+    }
+
+    public int getNumberOfBenefits() {
+        return numberOfBenefits;
+    }
+
+    public void setNumberOfBenefits(int numberOfBenefits) {
+        this.numberOfBenefits = numberOfBenefits;
+    }
+
+    public boolean isSponsored() {
+        return sponsored;
+    }
+
+    public void setSponsored(boolean sponsored) {
+        this.sponsored = sponsored;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDescription() {

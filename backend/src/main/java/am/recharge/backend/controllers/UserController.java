@@ -1,5 +1,6 @@
 package am.recharge.backend.controllers;
 
+import am.recharge.backend.modules.AddPointsData;
 import am.recharge.backend.modules.LoginCreds;
 import am.recharge.backend.modules.LoginInfo;
 import am.recharge.backend.modules.User;
@@ -49,8 +50,15 @@ public class UserController {
         return userService.loginByUsernameOrEmail(loginInfo);
     }
 
+    @CrossOrigin
     @PutMapping("/verify-user")
     public User verifyUserByID (@RequestParam String id) {
         return userService.verifyUserByID(id);
+    }
+
+    @CrossOrigin
+    @PutMapping("/add-points")
+    public User addPoints (@RequestBody AddPointsData pointsData) {
+        return userService.addPoints(pointsData.getUserID(), pointsData.getEventID(), pointsData.getCode());
     }
 }

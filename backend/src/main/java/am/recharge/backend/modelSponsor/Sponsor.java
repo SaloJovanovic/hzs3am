@@ -64,4 +64,7 @@ public class Sponsor {
     public void setSajt(boolean sajt) {
         this.sajt = sajt;
     }
+    public void addBenefit(String idB){
+        idBenefits.add(idB);
+    }
 }

@@ -32,7 +32,7 @@ const Footer = ({navbarLightMode}) => {
         <h3>Navigate</h3>
         <Link to={'/'} className={'link'}>Main</Link>
         <Link to={'/'} className={'link'}>Menu</Link>
-        <Link to={'/'} className={'link'}>About Us</Link>
+        <Link to={'/about'} className={'link'}>About Us</Link>
         <Link to={'/'} className={'link'}>Reserve</Link>
       </div>
     </div>
