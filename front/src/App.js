@@ -155,6 +155,7 @@ function App() {
 
     if(result.status === 200){
       //nesto
+      window.location.href = '/';
       console.log("brrrrr MOZEEE 200")
     } else if (result.status===403){
       //NESTO DRUGO

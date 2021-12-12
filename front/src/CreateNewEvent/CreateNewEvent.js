@@ -72,7 +72,7 @@ const CreateNewEvent = ({navbarLightMode, createEvent}) => {
       description: descriptionInp,
       city: city,
       address: address,
-      points: points,
+      points: 50,
     })
   }
 
@@ -128,20 +128,6 @@ const CreateNewEvent = ({navbarLightMode, createEvent}) => {
                  }}
                  onBlur={(event) => {
                    setAddressInp(false);
-                 }}/>
-          <label className={pointsSelected ? 'selected' : ''}>Poeni:</label>
-          <input className={pointsInp == 'error' ? 'form input ime-input error' : 'form input ime-input'} type={'number'}
-                 placeholder={pointsInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Ime'} value={points}
-                 onChange={(event) => {
-                   if (event.target.value > maxPoints)
-                     event.target.value = maxPoints;
-                   setPoints(event.target.value)
-                 }}
-                 onFocus={(event) => {
-                   setPointsInp(true);
-                 }}
-                 onBlur={(event) => {
-                   setPointsInp(false);
                  }}/>
           <label className={timeSelected ? 'selected' : ''}>Datum:</label>
           <input

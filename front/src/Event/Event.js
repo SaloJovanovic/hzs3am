@@ -238,7 +238,7 @@ const Event = ({navbarLightMode}) => {
         <input type={'text'} onChange={(event) => {
           setCode(event.target.value)
         }}/>
-        <button className={'btn'} onClick={onPutCode}>KOD</button>
+        <button className={'btn'} onClick={onPutCode}>Verifikuj prisustvo</button>
         <p className={codeError ? 'err active' : 'err'}>Kod nije validan</p>
         <div className={'map'}>
         <GoogleMapReact
