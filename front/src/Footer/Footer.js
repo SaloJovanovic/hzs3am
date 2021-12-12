@@ -24,7 +24,7 @@ const Footer = ({navbarLightMode}) => {
       </div>
       <div data-aos={"fade-up"} className={'support footer-element'}>
         <h3>Podrška</h3>
-        <Link to={'/'} className={'link'}>Kontakt</Link>
+        <Link to={'/contact'} className={'link'}>Kontakt</Link>
         <Link to={'/'} className={'link'}>Česta pitanja</Link>
         <Link to={'/privacy-policy'} className={'link'}>Politika privatnosti</Link>
       </div>
