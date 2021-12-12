@@ -1,6 +1,8 @@
 package am.recharge.backend.services;
 
 import am.recharge.backend.modelSponsor.*;
+import am.recharge.backend.modules.*;
+import am.recharge.backend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import java.util.UUID;
 public class SponsorService {
     private final SponsorRepository sponsorRepository;
     private final BenefitRepository benefitRepository;
+    private final UserRepository userRepository;
     public Benefit getBenefitById(String idBenefit){
         return benefitRepository.findById(idBenefit).orElse(null);
     }
@@ -54,9 +57,15 @@ public class SponsorService {
         }
         return b;
     }
-    public String getBenefitCode(){
+    public String getBenefitCode(String benefitID, String userID){
+        System.out.println(benefitID+" "+userID);
+        User u = userRepository.findById(userID).orElse(null);
+        Benefit b = benefitRepository.findById(benefitID).orElse(null);
+        u.setPoints(u.getPoints()-b.getPoints());
+        userRepository.save(u);
         String code = UUID.randomUUID().toString();
-        code = code.substring(0,15);
+        code = code.replace("-","");
+        code = code.substring(0,12);
         return code;
     }
 

@@ -71,7 +71,8 @@ public class SponsorController {
     }
     @GetMapping("/benefit-code")
     @CrossOrigin
-    public String getBenefitCode(){
-        return sponsorService.getBenefitCode();
+    public String getBenefitCode(@RequestParam String benefitID,@RequestParam String userID){
+        System.out.println(benefitID+" "+userID);
+        return sponsorService.getBenefitCode(benefitID, userID);
     }
 }
