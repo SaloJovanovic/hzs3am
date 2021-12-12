@@ -1,5 +1,6 @@
 package am.recharge.backend.controllers;
 
+import com.sun.jdi.DoubleValue;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -65,5 +66,13 @@ public class EventController {
     @CrossOrigin
     public List<Event> getEventByCity(@RequestBody String city){
         return eventService.getEventByCity(city);
+    }
+    @PutMapping("/grade-organizer")
+    @CrossOrigin
+    public User putGradeUser(@RequestParam String userID,@RequestParam String ocena){
+        System.out.println("Radi");
+        System.out.println(userID+" "+ ocena);
+        double oc = Double.valueOf(ocena);
+        return eventService.putUserGrade(userID, oc);
     }
 }

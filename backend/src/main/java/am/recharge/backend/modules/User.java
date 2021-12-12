@@ -31,5 +31,6 @@ public class User {
     private List<String> eventsInterested;
     private List<String> eventsCreated;
     private double grade;
+    private double numberGrades;
     //Napraviti EVENT
 }
