@@ -1,21 +1,21 @@
 .container{
-    background: white;
+    background: var(--bg-main);
     padding: 50px;
 }
 .container.lightMode{
-     background: var(--bg-main);
+     background: white;
  }
 .pp-container{
-    background: var(--bg-main);
+    background: #383838;
     color: white;
-    margin: 0 50px;
+    margin: 0 4%;
     border-radius: 20px;
-    padding: 10px;
-    box-shadow: 10px 10px 20px #606060;
+    padding: 40px;
+    box-shadow: 14px 14px 20px #5d5d5d;
 
 }
 .pp-container.lightMode{
-    background: white;
+    background: #d2d2d2;
     color: black;
-    box-shadow: 10px 10px 20px #ffffff;
+    box-shadow: 14px 14px 20px #606060;
 }

@@ -13,6 +13,7 @@ import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Event from "./Event/Event";
 import {useCookies} from "react-cookie";
+import About from "./About/About";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -154,8 +155,15 @@ function App() {
           <Route path={'/privacy-policy'} element={
             <div className={'Main'}>
               <PrivacyPolicy navbarLightMode={navbarLightMode}></PrivacyPolicy>
-              <Wave waveType={2} navbarLightMode={navbarLightMode}></Wave>
-              <Footer navbarLightMode={navbarLightMode}></Footer>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/about'} element={
+            <div className={'Main'}>
+              <About navbarLightMode={navbarLightMode}></About>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
           }></Route>
         </Routes>
