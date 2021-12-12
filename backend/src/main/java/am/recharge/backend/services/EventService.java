@@ -14,6 +14,7 @@ import am.recharge.backend.services.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @AllArgsConstructor
 @Service
@@ -30,7 +31,7 @@ public class EventService {
         List<Event> es = getAllEvents();
         List<Event> salji = new ArrayList<Event>();
         for (Event e : es){
-            if(city.equals(e.getCity())){
+            if(e.getCity().toLowerCase().contains(city.toLowerCase())){
                 salji.add(e);
             }
         }

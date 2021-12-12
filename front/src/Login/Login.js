@@ -53,8 +53,6 @@ const Login = ({loginError, setLoginError, navbarLightMode, onUserLogin, error})
               Log in
             </button>
             <p>Dont have an account? <Link className={'link'} to={'/register'}>Sign up</Link></p>
-            <p>Want to create restaurant? <Link className={'link'} to={'/new-restaurant'}>Sign up as restaurant</Link></p>
-            <p>Have a restaurant on this website? <Link className={'link'} to={'/login-restaurant'}>Log in as restaurant</Link></p>
             <p className={loginError ? 'error active' : 'error'}>Netacne informacije.</p>
           </div>
         </div>

@@ -70,10 +70,12 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
       setMoze(false)
       setAdresaInp("error");
     }
-    const Pre18god = new Date();
-    Pre18god.setFullYear(Pre18god.getFullYear() - 18);
-    if (datumRodjenja > Pre18god) {
+    const Pre18god = new Date(2021-18, 12, 12);
+    // console.log("Pre " + Pre18god);
+    // console.log("Dr " + datumRodjenja);
+    if (Date.parse(datumRodjenja) > Pre18god) {
       setMoze(false)
+      console.log("MALI SI ALO")
       setDatumRodjenjaInp("error");
     }
     if (moze) {
@@ -120,12 +122,12 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
     <>
       <div
         className={navbarLightMode ? 'register-container login-container lightMode form' : 'register-container login-container form'}>
-        <div className={'container'}>
+        <div className={`container ${showModal ? 'overlay' : ''}`}>
           {/*<div className={'brand-logo'}></div>*/}
           <div className={'brand-title'}>REGISTER</div>
           <div className={'inputs'}>
             <label className={imeSelected ? 'selected' : ''}>Ime:</label>
-            <input className={imeInp == 'error' ? 'form input ime-input error' : 'form input ime-input'} type={'text'}
+            <input className={imeInp == 'error' ? 'form input ime-input errorr' : 'form input ime-input'} type={'text'}
                    placeholder={imeInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Ime'} value={ime}
                    onChange={(event) => {
                      setIme(event.target.value)
@@ -137,7 +139,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setImeSelected(false);
                    }}/>
             <label className={prezimeSelected ? 'selected' : ''}>Prezime:</label>
-            <input className={prezimeInp == 'error' ? 'form input prezime-input error' : 'form input prezime-input'}
+            <input className={prezimeInp == 'error' ? 'form input prezime-input errorr' : 'form input prezime-input'}
                    type={'text'} placeholder={prezimeInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Prezime'}
                    value={prezime}
                    onChange={(event) => {
@@ -150,7 +152,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setPrezimeSelected(false);
                    }}/>
             <label className={usernameSelected ? 'selected' : ''}>Username:</label>
-            <input className={usernameInp == 'error' ? 'form input username-input error' : 'form input username-input'}
+            <input className={usernameInp == 'error' ? 'form input username-input errorr' : 'form input username-input'}
                    type={'text'} placeholder={usernameInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Korisničko ime'}
                    value={username}
                    onChange={(event) => {
@@ -163,7 +165,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setUsernameSelected(false);
                    }}/>
             <label className={emailSelected ? 'selected' : ''}>Email:</label>
-            <input className={emailInp == 'error' ? 'form input email-input error' : 'form input email-input'}
+            <input className={emailInp == 'error' ? 'form input email-input errorr' : 'form input email-input'}
                    type={'text'} placeholder={emailInp == 'error' ? 'Unesi manje od 64 karaktera' : 'Mejl'}
                    value={email}
                    onChange={(event) => {
@@ -176,7 +178,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setEmailSelected(false);
                    }}/>
             <label className={passwordSelected ? 'selected' : ''}>Password:</label>
-            <input className={passwordInp == 'error' ? 'form input password-input error' : 'form input passord-input'}
+            <input className={passwordInp == 'error' ? 'form input password-input errorr' : 'form input passord-input'}
                    type={'password'}
                    placeholder={passwordInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Sifra'}
                    value={password}
@@ -190,7 +192,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setPasswordSelected(false);
                    }}/>
             <label className={adresaSelected ? 'selected' : ''}>Adresa:</label>
-            <input className={adresaInp == 'error' ? 'form input adresa-input error' : 'form input adresa-input'}
+            <input className={adresaInp == 'error' ? 'form input adresa-input errorr' : 'form input adresa-input'}
                    type={'text'} placeholder={adresaInp == 'error' ? 'Loš format' : 'Adresa'} value={adresa}
                    onChange={(event) => {
                      setAdresa(event.target.value)
@@ -202,7 +204,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                      setAdresaSelected(false);
                    }}/>
             <label className={gradSelected ? 'selected' : ''}>Grad:</label>
-            <input className={gradInp == 'error' ? 'form input grad-input error' : 'form input grad-input'}
+            <input className={gradInp == 'error' ? 'form input grad-input errorr' : 'form input grad-input'}
                    type={'text'} placeholder={gradInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Grad'}
                    value={grad}
                    onChange={(event) => {
@@ -216,7 +218,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
                    }}/>
             <label className={datumRodjenjaSelected ? 'selected' : ''}>Datum rodjenja:</label>
             <input
-              className={datumRodjenjaInp == 'error' ? 'form input datumRodjenja-input error' : 'form input datumRodjenja-input'}
+              className={datumRodjenjaInp == 'error' ? 'form input datumRodjenja-input errorr' : 'form input datumRodjenja-input'}
               type={'date'}
               placeholder={datumRodjenjaInp == 'error' ? 'Unesi manje od 20 karaktera' : 'Datum rodjenja'}
               value={datumRodjenja}
@@ -229,35 +231,33 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
               onBlur={(event) => {
                 setDatumRodjenjaSelected(false);
               }}/>
+            <p className={datumRodjenjaInp == 'error' ? 'datumError active' : 'datumError'}>Morate biti stariji od 18 godina!</p>
             <button className={'btn'} type={'submit'} onClick={e => {
               e.preventDefault();
               VerifyUser();
             }}>
               Register
             </button>
-            <p>Dont have an account? <Link className={'link'} to={'/new-user'}>Sign up</Link></p>
-            <p>Want to create restaurant? <Link className={'link'} to={'/new-restaurant'}>Sign up as restaurant</Link>
-            </p>
-            <p>Have a restaurant on this website? <Link className={'link'} to={'/login-restaurant'}>Log in as
-              restaurant</Link></p>
+            <p>Already have an account? <Link className={'link'} to={'/login'}>Log in</Link></p>
             {/*<p className={canLogInError ? 'error' : 'error active'}>False informations.</p>*/}
           </div>
-          <Modal isOpen={showModal} className={'modal'}>
-            <input type="text" onChange={e => {
-              setVerificationCode(e.target.value)
-            }} value={verificationCode}/>
-            <button onClick={() => {
-              //Slanje POST zahtjeva
-              CreateNewUser();
-              //Provjera status koda i odgovora
-              //Rutiranje na drugu stranicu
-              setShowModal(false);
-            }
-            }>Send code
-            </button>
-          </Modal>
         </div>
       </div>
+      <Modal isOpen={showModal} className={'modal'}>
+        <p>Unesite verifikacioni kod.</p>
+        <input type="text" onChange={e => {
+          setVerificationCode(e.target.value)
+        }} value={verificationCode}/>
+        <button className={'btn'} onClick={() => {
+          //Slanje POST zahtjeva
+          CreateNewUser();
+          //Provjera status koda i odgovora
+          //Rutiranje na drugu stranicu
+          setShowModal(false);
+        }
+        }>Send code
+        </button>
+      </Modal>
     </>
   )
 }

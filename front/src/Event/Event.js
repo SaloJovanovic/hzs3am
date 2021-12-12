@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import './Event.css'
-import {HiUser, MdGrade, MdVerified, SiPytorchlightning, AiFillEye} from "react-icons/all";
+import {HiUser, MdGrade, MdVerified, SiPytorchlightning, AiFillEye, AiFillStar} from "react-icons/all";
 import {useParams} from "react-router-dom";
 import {useCookies} from "react-cookie";
 import GoogleMapReact from "google-map-react";
 import MyMarker from "./MyMarker";
 import Geocode from "react-geocode";
+import { Rating } from 'react-simple-star-rating'
 
 const Event = ({navbarLightMode}) => {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -33,10 +34,12 @@ const Event = ({navbarLightMode}) => {
   const[time1, setTime1] = useState();
   const[address1, setAddress1] = useState("");
   const[city1, setCity1] = useState("");
+  const[userC, setUserC] = useState("");
   const[numInterested1, setNumInterested1] = useState(-1);
   const[views1, setViews1] = useState(0)
+  const[grade1, setGrade1] = useState(0);
   const[LAT, setLAT] = useState(0);
-  const[LNG, setLNG] = useState(0);;
+  const[LNG, setLNG] = useState(0);
   useEffect(async ()=> {
     if (cookies.loggedInUserId != null) {
       await fetch("http://localhost:8080/event/id-search?eventID=" + eventId.id)
@@ -52,11 +55,13 @@ const Event = ({navbarLightMode}) => {
           setNumInterested1(data.numI);
           setViews1(data.views);
           setSocialEvent(data);
+          setUserC(data.userID);
           await fetch("http://localhost:8080/user/findByID?id=" + data.userID)
             .then((response1) => response1.json())
             .then(async (data1) => {
               setUsername1(data1.username);
               setVerified1(data1.verified);
+              setGrade1(data1.grade);
               setUser(data1);
               gettingViewed(data1.id);
             })
@@ -182,7 +187,6 @@ const Event = ({navbarLightMode}) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLAT(lat);
         setLNG(lng);
-        console.log(lat, lng);
       },
       (error) => {
         console.error(error);
@@ -191,6 +195,27 @@ const Event = ({navbarLightMode}) => {
   const points = [
     { id: 1, title: city1 + " " +address1, lat: LAT, lng: LNG}
   ];
+
+  const oceni = async (ocena) => {
+    const resp = await fetch( "http://localhost:8080/event/grade-organizer?userID=" + userC + "&ocena=" + ocena, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json());
+  }
+
+  const [rating, setRating] = useState(0) // initial rating value
+  const handleRating = (rate: number) => {
+    setRating(rate / 20);
+    let ocena = rate / 20;
+    console.log(ocena.toString());
+    // let ocena = rate;
+    oceni(ocena);
+    // other logic
+  }
+
   return (
     <div className={navbarLightMode ? 'event-container login-container form lightMode' : 'event-container login-container form'}>
       <div className={'container'}>
@@ -199,6 +224,11 @@ const Event = ({navbarLightMode}) => {
         <p>{time1}</p>
         <p>{address1}, {city1}</p>
         <p>{views1} <AiFillEye className={'small-icon'}/></p>
+        <p>{Math.round(grade1 * 10) / 10} <AiFillStar className={'small-icon'}></AiFillStar></p>
+        <Rating
+          onClick={handleRating}
+          ratingValue={rating}
+        />
         <p>{numInterested1} korisnik/a je zainteresovano <SiPytorchlightning className={'small-icon'}/></p>
         <button className={'btn'} onClick={setInterested}>Zainteresovan sam</button>
         <p className={interestedError ? 'err active' : 'err'}>Vec ste zainteresovani</p>

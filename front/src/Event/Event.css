@@ -6,6 +6,10 @@
     display: none;
 }
 
+.event-container {
+    height: 120vh;
+}
+
 .err {
     display: none;
 }

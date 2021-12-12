@@ -27,7 +27,7 @@ const Main = ({navbarLightMode}) => {
         <h1><span>RE</span>CHARGE</h1>
         <h3 className={'details'}>Opusti se, izađi iz zone komfora, pridruži nam se, upoznaj nove ljude i spremi se za nova znanja i iskustva.</h3>
         <div className={'header-btns'}>
-          <Link to={'/all-restaurants'} smooth={true} duration={500} className={'btn'}>Događaji</Link>
+          <Link to={'/events'} smooth={true} duration={500} className={'btn'}>Događaji</Link>
         </div>
       </div>
     </div>

@@ -88,12 +88,16 @@ function App() {
 
   console.log(loggedInUser);
 
+  let originalEvents = [];
   const[events, setEvents] = useState([]);
   const getEvents = async () => {
     if (cookies.loggedInUserId != null) {
       await fetch("http://localhost:8080/event/all")
         .then((response) => response.json())
-        .then((data) => setEvents(data));
+        .then((data) => {
+          setEvents(data)
+          originalEvents = data;
+        });
     }
   }
   useEffect(()=>getEvents(), []);
@@ -223,7 +227,7 @@ function App() {
           }></Route>
           <Route path={'/events'} element={
             <div className={'Main'}>
-              <Events events={events} navbarLightMode={navbarLightMode}></Events>
+              <Events events={events} setEvents={setEvents} navbarLightMode={navbarLightMode}></Events>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
@@ -237,7 +241,6 @@ function App() {
               </div>
             }>
           </Route>
-          <Route path={'/events'}></Route>
           <Route path={'/privacy-policy'} element={
             <div className={'Main'}>
               <PrivacyPolicy navbarLightMode={navbarLightMode}></PrivacyPolicy>

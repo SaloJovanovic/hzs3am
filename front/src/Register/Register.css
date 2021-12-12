@@ -2,7 +2,7 @@
     padding-top: 30px;
     width: 100%;
     background-color: var(--bg-main);
-    min-height: 100vh !important;
+    min-height: 120vh !important;
     position: relative;
     width: 100%;
     display: flex;
@@ -16,6 +16,11 @@
 
 .register-container.lightMode {
     background-color: white;
+}
+
+.overlay {
+    background-color: black ;
+    opacity: 0.7;
 }
 
 .register-container.lightMode .container{
@@ -122,9 +127,45 @@
     flex-wrap: wrap;
 }
 .ReactModal__Overlay input{
-    width: 70px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+.input.errorr::placeholder {
+    color: red;
+}
 
+.datumError {
+    display: none;
+    color: red !important;
+}
+
+.datumError.active {
+    display: flex;
+}
+
+.modal {
+    height: 200px;
+    padding: 30px;
+    margin-left: -10px;
+    width: 500px;
+    background-color: gray;
+    padding-top: 30px;
+    background-color: var(--bg-main);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all linear 0.5s;
+}
+
+.modal p {
+    color: white;
+}
+
+.modal .btn {
+    margin-top: 10px;
 }
