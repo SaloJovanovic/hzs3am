@@ -15,6 +15,7 @@ public class EventInfo {
     private String address;
     private String city;
     private int points;
+    private String description;
 
     public String getTitle() {
         return title;

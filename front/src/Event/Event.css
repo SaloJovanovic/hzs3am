@@ -1,3 +1,7 @@
 .event-container.lightMode h2, .event-container.lightMode h3 {
     color: white;
 }
+
+.small-icon.dont {
+    display: none;
+}
