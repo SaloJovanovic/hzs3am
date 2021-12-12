@@ -1,15 +1,16 @@
 import "./ShopItem.css"
-import {ImArrowRight, SiPytorchlightning} from "react-icons/all";
+import {DiSafari, ImArrowRight, SiPytorchlightning} from "react-icons/all";
 import {useState} from "react";
 const ShopItem = (navbarLightMode) => {
   const [item, setItem] = useState("brrrrrrrrrrrrrrrrrrr")
 
-  return(
-    <>
-      <div className={'item-container'}>
-        <p>100<SiPytorchlightning/><ImArrowRight/>{item}</p>
-      </div>
-    </>
+  return (
+    <div className={'item-container'}>
+      <div className={'item-element'}>100</div>
+      <div className={'item-element'}><SiPytorchlightning/></div>
+      <div className={'item-element'}><ImArrowRight/></div>
+      <div className={'item-element'}>{item}</div>
+    </div>
   )
 }
 export default ShopItem;

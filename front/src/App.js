@@ -147,9 +147,8 @@ function App() {
             <div className={'Main'}>
               <Main navbarLightMode={navbarLightMode}></Main>
               {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
-              <Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>
-              <ShopItem navbarLightMode={navbarLightMode}></ShopItem>
               {/*<Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>*/}
+              <ShopItem navbarLightMode={navbarLightMode}></ShopItem>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>}>
