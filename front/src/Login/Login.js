@@ -52,7 +52,7 @@ const Login = ({loginError, setLoginError, navbarLightMode, onUserLogin, error})
             <button className={'btn'} type={'submit'} onClick={LoginNewUser}>
               Log in
             </button>
-            <p>Dont have an account? <Link className={'link'} to={'/register'}>Sign up</Link></p>
+            <p>Nemate nalog? <Link className={'link'} to={'/register'}>Registrujte se</Link></p>
             <p className={loginError ? 'error active' : 'error'}>Netacne informacije.</p>
           </div>
         </div>

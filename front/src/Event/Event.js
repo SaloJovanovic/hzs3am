@@ -39,6 +39,7 @@ const Event = ({navbarLightMode}) => {
   const[numInterested1, setNumInterested1] = useState(-1);
   const[views1, setViews1] = useState(0)
   const[grade1, setGrade1] = useState(0);
+  const[userI, setUserI] = useState("");
   const[LAT, setLAT] = useState(0);
   const[LNG, setLNG] = useState(0);
   useEffect(async ()=> {
@@ -63,6 +64,7 @@ const Event = ({navbarLightMode}) => {
             .then(async (data1) => {
               setUsername1(data1.username);
               setVerified1(data1.verified);
+              setUserI(data1.id);
               setGrade1(data1.grade);
               setUser(data1);
               gettingViewed(data1.id);
@@ -85,7 +87,7 @@ const Event = ({navbarLightMode}) => {
     }
 
     console.log();
-    const result = await fetch( "http://localhost:8080/event/getting-interested?eventID=" + eventId.id + "&userID=" + user.id, {
+    const result = await fetch( "http://localhost:8080/event/getting-interested?eventID=" + eventId.id + "&userID=" + cookies.loggedInUserId, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -136,18 +138,17 @@ const Event = ({navbarLightMode}) => {
   const[code, setCode] = useState();
   const[codeError, setCodeError] = useState(false);
 
-  const putCode = async (bodi) => {
+  const putCode = async () => {
     if (!socialEvent.userI.includes(user.id)) {
       setCodeError(true)
       return
     }
-    console.log(bodi);
     const result = await fetch("http://localhost:8080/user/add-points", {
       method: "PUT",
       body: JSON.stringify({
-        userID: bodi.userID,
-        eventID: bodi.eventID,
-        code: bodi.code,
+        userID: cookies.loggedInUserId,
+        eventID: eventId.id,
+        code: code,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -167,8 +168,6 @@ const Event = ({navbarLightMode}) => {
 
   const onPutCode = () => {
     putCode({
-      userID: user.id,
-      eventID: socialEvent.id,
       code: code,
     })
   }
@@ -238,7 +237,7 @@ const Event = ({navbarLightMode}) => {
         <input type={'text'} onChange={(event) => {
           setCode(event.target.value)
         }}/>
-        <button className={'btn'} onClick={onPutCode}>Verifikuj prisustvo</button>
+        <button className={'btn'} onClick={putCode}>Verifikuj prisustvo</button>
         <p className={codeError ? 'err active' : 'err'}>Kod nije validan</p>
         <div className={'map'}>
         <GoogleMapReact

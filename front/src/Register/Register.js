@@ -238,7 +238,7 @@ const Register = ({navbarLightMode, verifyUser, createUser}) => {
             }}>
               Register
             </button>
-            <p>Already have an account? <Link className={'link'} to={'/login'}>Log in</Link></p>
+            <p>Imate nalog? <Link className={'link'} to={'/login'}>Ulogujte se</Link></p>
             {/*<p className={canLogInError ? 'error' : 'error active'}>False informations.</p>*/}
           </div>
         </div>
