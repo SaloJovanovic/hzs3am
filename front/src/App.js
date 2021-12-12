@@ -16,6 +16,7 @@ import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 import About from "./About/About";
 import EventsChoice from "./EventsChoice/EventsChoice";
+import CreateNewEvent from "./CreateNewEvent/CreateNewEvent";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedInUserId, loggedIn']);
@@ -161,6 +162,13 @@ function App() {
           <Route path={'/events-choice'} element={
             <div className={'Main'}>
               <EventsChoice navbarLightMode={navbarLightMode}></EventsChoice>
+              <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
+              <Footer navbarLightMode={!navbarLightMode}></Footer>
+            </div>
+          }></Route>
+          <Route path={'/create-new-event'} element={
+            <div className={'Main'}>
+              <CreateNewEvent navbarLightMode={navbarLightMode}></CreateNewEvent>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>
