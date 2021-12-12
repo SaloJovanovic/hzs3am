@@ -70,8 +70,6 @@ public class EventController {
     @PutMapping("/grade-organizer")
     @CrossOrigin
     public User putGradeUser(@RequestParam String userID,@RequestParam String ocena){
-        System.out.println("Radi");
-        System.out.println(userID+" "+ ocena);
         double oc = Double.valueOf(ocena);
         return eventService.putUserGrade(userID, oc);
     }
