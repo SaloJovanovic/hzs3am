@@ -12,6 +12,7 @@ import Articles from "./Articles/Articles";
 import Account from "./Account/Account";
 import Register from "./Register/Register";
 import Event from "./Event/Event";
+import ShopItem from "./ShopItem/ShopItem";
 import Events from "./Events/Events";
 import {useCookies} from "react-cookie";
 import About from "./About/About";
@@ -148,6 +149,7 @@ function App() {
               <Main navbarLightMode={navbarLightMode}></Main>
               {/*<Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>*/}
               {/*<Articles articles={articles} navbarLightMode={navbarLightMode}></Articles>*/}
+              <ShopItem navbarLightMode={navbarLightMode}></ShopItem>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>}>
