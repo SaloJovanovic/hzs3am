@@ -4,132 +4,132 @@ const PrivacyPolicy = ({navbarLightMode}) => {
   return (
     <div className={navbarLightMode? "container lightMode" : "container"}>
       <div className={navbarLightMode? "pp-container lightMode" : "pp-container"}>
-        <h1>Privacy Policy for 3AM </h1>
+        <h1>Politika privatnosti za 3AM </h1>
 
-        <p>At RECHARGE, accessible from recharge.herokuapp.com, one of our main priorities is the privacy of our
-          visitors. This Privacy Policy document contains types of information that is collected and recorded by
-          RECHARGE and how we use it.</p>
+        <p>U RECHARGE-u, dostupnom sa recharge.herokuapp.com, jedan od naših glavnih prioriteta je privatnost naših
+          posetioci. Ovaj dokument o politici privatnosti sadrži vrste informacija koje prikuplja i beleži
+          RECHARGE i kako ga koristimo.</p>
 
-        <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to
-          contact us.</p>
+        <p>Ako imate dodatnih pitanja ili vam je potrebno više informacija o našoj politici privatnosti, ne oklevajte da
+          kontaktirajte nas.</p>
 
-        <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with
-          regards to the information that they shared and/or collect in RECHARGE. This policy is not applicable to any
-          information collected offline or via channels other than this website. Our Privacy Policy was created with the
-          help of the <a href="https://www.privacypolicygenerator.info">Free Privacy Policy Generator</a>.</p>
+        <p>Ova Politika privatnosti se odnosi samo na naše aktivnosti na mreži i važi za posetioce naše veb stranice sa
+          u vezi sa informacijama koje su podelili i/ili prikupili u RECHARGE-u. Ova politika nije primenljiva ni na jednu
+          informacije prikupljene van mreže ili putem drugih kanala osim ove veb stranice. Naša politika privatnosti je kreirana sa
+          pomoć <a href="https://vvv.privacipolicigenerator.info">Besplatnog generatora politike privatnosti</a>.</p>
 
-        <h2>Consent</h2>
+        <h2>Saglasnost</h2>
 
-        <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+        <p>Korišćenjem naše veb stranice, ovime se slažete sa našom Politikom privatnosti i saglasni ste sa njenim uslovima.</p>
 
-        <h2>Information we collect</h2>
+        <h2>Informacije koje prikupljamo</h2>
 
-        <p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will
-          be made clear to you at the point we ask you to provide your personal information.</p>
-        <p>If you contact us directly, we may receive additional information about you such as your name, email address,
-          phone number, the contents of the message and/or attachments you may send us, and any other information you
-          may choose to provide.</p>
-        <p>When you register for an Account, we may ask for your contact information, including items such as name,
-          company name, address, email address, and telephone number.</p>
+        <p>Lični podaci koje se od vas traži i razlozi zbog kojih se od vas traži da ih dostavite
+          biti vam razjašnjeni u trenutku kada od vas tražimo da date svoje lične podatke.</p>
+        <p>Ako nas kontaktirate direktno, možda ćemo dobiti dodatne informacije o vama kao što su vaše ime, adresa e-pošte,
+          broj telefona, sadržaj poruke i/ili priloge koje nam možete poslati i sve druge informacije koje imate
+          može izabrati da obezbedi.</p>
+        <p>Kada se registrujete za nalog, možemo tražiti vaše kontakt informacije, uključujući stavke kao što su ime,
+          naziv kompanije, adresa, adresa e-pošte i broj telefona.</p>
 
-        <h2>How we use your information</h2>
+        <h2>Kako koristimo vaše informacije</h2>
 
-        <p>We use the information we collect in various ways, including to:</p>
+        <p>Informacije koje prikupljamo koristimo na različite načine, uključujući za:</p>
 
         <ul>
-          <li>Provide, operate, and maintain our website</li>
-          <li>Improve, personalize, and expand our website</li>
-          <li>Understand and analyze how you use our website</li>
-          <li>Develop new products, services, features, and functionality</li>
-          <li>Communicate with you, either directly or through one of our partners, including for customer service, to
-            provide you with updates and other information relating to the website, and for marketing and promotional
-            purposes
+          <li>Obezbeđivanje, rad i održavanje naše veb stranice</li>
+          <li>Poboljšajte, personalizujte i proširite našu veb lokaciju</li>
+          <li>Shvatite i analizirajte kako koristite našu veb lokaciju</li>
+          <li>Razvijanje novih proizvoda, usluga, funkcija i funkcionalnosti</li>
+          <li>Komunicira sa vama, bilo direktno ili preko jednog od naših partnera, uključujući korisničku podršku, da
+            da vam pruži ažuriranja i druge informacije koje se odnose na veb lokaciju, kao i za marketing i promociju
+            svrhe
           </li>
-          <li>Send you emails</li>
-          <li>Find and prevent fraud</li>
+          <li>Šalji vam imejlove</li>
+          <li>Pronađite i sprečite prevaru</li>
         </ul>
 
-        <h2>Log Files</h2>
+        <h2>Datoteke evidencije</h2>
 
-        <p>RECHARGE follows a standard procedure of using log files. These files log visitors when they visit websites.
-          All hosting companies do this and a part of hosting services' analytics. The information collected by log
-          files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time
-          stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that
-          is personally identifiable. The purpose of the information is for analyzing trends, administering the site,
-          tracking users' movement on the website, and gathering demographic information.</p>
+        <p>RECHARGE prati standardnu proceduru korišćenja datoteka evidencije. Ove datoteke evidentiraju posetioce kada posete veb lokacije.
+          Sve hosting kompanije to rade i deo analitike hosting usluga. Podaci prikupljeni log
+          datoteke uključuju adrese internet protokola (IP), tip pretraživača, dobavljača Internet usluga (ISP), datum i vreme
+          pečat, stranice za upućivanje/izlaz i eventualno broj klikova. Oni nisu povezani ni sa kakvim informacijama koje
+          je lično identifikovan. Svrha informacija je za analizu trendova, administriranje sajta,
+          praćenje kretanja korisnika na veb lokaciji i prikupljanje demografskih informacija.</p>
 
-        <h2>Cookies and Web Beacons</h2>
+        <h2>Kolačići i veb-svetionici</h2>
 
-        <p>Like any other website, RECHARGE uses 'cookies'. These cookies are used to store information including
-          visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is
-          used to optimize the users' experience by customizing our web page content based on visitors' browser type
-          and/or other information.</p>
+        <p>Kao i svaka druga veb lokacija, RECHARGE koristi „kolačiće“. Ovi kolačići se koriste za čuvanje informacija uključujući
+          preferencije posetilaca i stranice na veb lokaciji kojima je posetilac pristupio ili posetio. Informacija je
+          koristi se za optimizaciju korisničkog iskustva prilagođavanjem sadržaja naše veb stranice na osnovu tipa pretraživača posetilaca
+          i/ili druge informacije.</p>
 
-        <p>For more general information on cookies, please read <a
-          href="https://www.generateprivacypolicy.com/#cookies">the Cookies article on Generate Privacy Policy
-          website</a>.</p>
+        <p>Za više opštih informacija o kolačićima, pročitajte <a
+          href="https://vvv.generateprivacipolici.com/#cookies">članak o kolačićima o generisanju politike privatnosti
+          veb-sajt</a>.</p>
 
 
-        <h2>Advertising Partners Privacy Policies</h2>
+        <h2>Politika privatnosti partnera za oglašavanje</h2>
 
-        <p>You may consult this list to find the Privacy Policy for each of the advertising partners of RECHARGE.</p>
+        <p>Ovu listu možete pogledati da biste pronašli Politiku privatnosti za svakog od reklamnih partnera RECHARGE-a.</p>
 
-        <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are
-          used in their respective advertisements and links that appear on RECHARGE, which are sent directly to users'
-          browser. They automatically receive your IP address when this occurs. These technologies are used to measure
-          the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on
-          websites that you visit.</p>
+        <p>Oglasni serveri ili oglasne mreže trećih strana koriste tehnologije kao što su kolačići, JavaScript ili veb-svetionici koji su
+          koriste u svojim oglasima i vezama koje se pojavljuju na RECHARGE, a koje se šalju direktno korisnicima
+          pregledač. Oni automatski dobijaju vašu IP adresu kada se to dogodi. Ove tehnologije se koriste za merenje
+          efikasnost njihovih reklamnih kampanja i/ili personalizovanje reklamnog sadržaja koji vidite
+          veb-sajtova koje posećujete.</p>
 
-        <p>Note that RECHARGE has no access to or control over these cookies that are used by third-party
-          advertisers.</p>
+        <p>Imajte na umu da RECHARGE nema pristup ili kontrolu nad ovim kolačićima koje koriste treće strane
+          oglašivači.</p>
 
-        <h2>Third Party Privacy Policies</h2>
+        <h2>Politika privatnosti trećih strana</h2>
 
-        <p>RECHARGE's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to
-          consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may
-          include their practices and instructions about how to opt-out of certain options. </p>
+        <p>Politika privatnosti RECHARGE-a ne važi za druge oglašivače ili veb-sajtove. Stoga vam savetujemo da
+          konsultujte odgovarajuću Politiku privatnosti ovih nezavisnih servera oglasa za detaljnije informacije.Može
+          uključuju njihove prakse i uputstva o tome kako da odustanu od određenih opcija. </p>
 
-        <p>You can choose to disable cookies through your individual browser options. To know more detailed information
-          about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
+        <p>Možete da odaberete da onemogućite kolačiće preko pojedinačnih opcija pregledača. Da biste saznali detaljnije informacije
+          o upravljanju kolačićima sa određenim veb pregledačima, može se naći na odgovarajućim veb lokacijama pretraživača.</p>
 
-        <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+        <h2>CCPA prava na privatnost (nemojte prodavati moje lične podatke)</h2>
 
-        <p>Under the CCPA, among other rights, California consumers have the right to:</p>
-        <p>Request that a business that collects a consumer's personal data disclose the categories and specific pieces
-          of personal data that a business has collected about consumers.</p>
-        <p>Request that a business delete any personal data about the consumer that a business has collected.</p>
-        <p>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
-        <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these
-          rights, please contact us.</p>
+        <p>Prema CCPA, između ostalih prava, potrošači iz Kalifornije imaju pravo na:</p>
+        <p>Zahtevajte da preduzeće koje prikuplja lične podatke potrošača otkrije kategorije i određene delove
+          ličnih podataka koje je preduzeće prikupilo o potrošačima.</p>
+        <p>Zahtevajte da preduzeće izbriše sve lične podatke o potrošaču koje je preduzeće prikupilo.</p>
+        <p>Zatražite da preduzeće koje prodaje lične podatke potrošača, a ne prodaje lične podatke potrošača.</p>
+        <p>Ako podnesete zahtev, imamo mesec dana da vam odgovorimo. Ako želite da vežbate bilo šta od ovoga
+          prava, kontaktirajte nas.</p>
 
-        <h2>GDPR Data Protection Rights</h2>
+        <h2>Prava na zaštitu podataka GDPR-a</h2>
 
-        <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled
-          to the following:</p>
-        <p>The right to access – You have the right to request copies of your personal data. We may charge you a small
-          fee for this service.</p>
-        <p>The right to rectification – You have the right to request that we correct any information you believe is
-          inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
-        <p>The right to erasure – You have the right to request that we erase your personal data, under certain
-          conditions.</p>
-        <p>The right to restrict processing – You have the right to request that we restrict the processing of your
-          personal data, under certain conditions.</p>
-        <p>The right to object to processing – You have the right to object to our processing of your personal data,
-          under certain conditions.</p>
-        <p>The right to data portability – You have the right to request that we transfer the data that we have
-          collected to another organization, or directly to you, under certain conditions.</p>
-        <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these
-          rights, please contact us.</p>
+        <p>Želeli bismo da budemo sigurni da ste u potpunosti svesni svih svojih prava na zaštitu podataka. Svaki korisnik ima pravo
+          na sledeće:</p>
+        <p>Pravo na pristup – Imate pravo da zahtevate kopije vaših ličnih podataka. Možemo vam malo naplatiti
+          naknada za ovu uslugu.</p>
+        <p>Pravo na ispravku – Imate pravo da zahtevate da ispravimo bilo koju informaciju za koju verujete da jeste
+          netačno. Takođe imate pravo da zahtevate da dopunimo informacije za koje smatrate da su nepotpune.</p>
+        <p>Pravo na brisanje – Imate pravo da zahtevate da izbrišemo vaše lične podatke, pod određenim
+          uslovi.</p>
+        <p>Pravo na ograničenje obrade – Imate pravo da zahtevate da ograničimo vašu obradu
+          lične podatke, pod određenim uslovima.</p>
+        <p>Pravo na prigovor na obradu – Imate pravo da uložite prigovor na našu obradu vaših ličnih podataka,
+          pod određenim uslovima.</p>
+        <p>Pravo na prenosivost podataka – Imate pravo da zahtevate da prenesemo podatke koje imamo
+          prikupljene drugoj organizaciji ili direktno vama, pod određenim uslovima.</p>
+        <p>Ako podnesete zahtev, imamo mesec dana da vam odgovorimo. Ako želite da vežbate bilo šta od ovoga
+          prava, kontaktirajte nas.</p>
 
-        <h2>Children's Information</h2>
+        <h2>Informacije za decu</h2>
 
-        <p>Another part of our priority is adding protection for children while using the internet. We encourage parents
-          and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+        <p>Drugi deo našeg prioriteta je zaštita dece dok koriste internet. Podstičemo roditelje
+          i staratelji da posmatraju, učestvuju i/ili nadgledaju i vode njihove aktivnosti na mreži.</p>
 
-        <p>RECHARGE does not knowingly collect any Personal Identifiable Information from children under the age of 13.
-          If you think that your child provided this kind of information on our website, we strongly encourage you to
-          contact us immediately and we will do our best efforts to promptly remove such information from our
-          records.</p>
+        <p>RECHARGE ne prikuplja svesno nikakve lične podatke od dece mlađe od 13 godina.
+          Ako mislite da je vaše dete dalo ovakvu informaciju na našoj veb stranici, preporučujemo vam da to učinite
+          kontaktirajte nas odmah i mi ćemo se potruditi da takve informacije brzo uklonimo sa naših
+          zapisi.</p>
       </div>
     </div>
   )
