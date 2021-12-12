@@ -23,17 +23,15 @@ const Footer = ({navbarLightMode}) => {
         </div>
       </div>
       <div data-aos={"fade-up"} className={'support footer-element'}>
-        <h3>Support</h3>
+        <h3>Podrška</h3>
         <Link to={'/'} className={'link'}>Kontakt</Link>
         <Link to={'/'} className={'link'}>Česta pitanja</Link>
         <Link to={'/privacy-policy'} className={'link'}>Politika privatnosti</Link>
       </div>
       <div data-aos={"fade-up"} className={'navigate footer-element'}>
-        <h3>Navigate</h3>
-        <Link to={'/'} className={'link'}>Main</Link>
-        <Link to={'/'} className={'link'}>Menu</Link>
-        <Link to={'/about'} className={'link'}>About Us</Link>
-        <Link to={'/'} className={'link'}>Reserve</Link>
+        <h3>Navigacija</h3>
+        <Link to={'/'} className={'link'}>Početna</Link>
+        <Link to={'/about'} className={'link'}>O nama</Link>
       </div>
     </div>
   )
