@@ -5,7 +5,9 @@ import am.recharge.backend.modules.*;
 import am.recharge.backend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +63,8 @@ public class SponsorService {
         System.out.println(benefitID+" "+userID);
         User u = userRepository.findById(userID).orElse(null);
         Benefit b = benefitRepository.findById(benefitID).orElse(null);
-        u.setPoints(u.getPoints()-b.getPoints());
+        if (u.getPoints() >= b.getPoints()) u.setPoints(u.getPoints()-b.getPoints());
+        else throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         userRepository.save(u);
         String code = UUID.randomUUID().toString();
         code = code.replace("-","");
