@@ -30,6 +30,7 @@ const Event = ({navbarLightMode}) => {
   // }
   const[title1, setTitle1] = useState("");
   const[username1, setUsername1] = useState("");
+  const[description1, setDescription1] = useState("");
   const[verified1, setVerified1] = useState(false);
   const[time1, setTime1] = useState();
   const[address1, setAddress1] = useState("");
@@ -53,6 +54,7 @@ const Event = ({navbarLightMode}) => {
           setAddress1(data.address);
           setCity1(data.city);
           setNumInterested1(data.numI);
+          setDescription1(data.description);
           setViews1(data.views);
           setSocialEvent(data);
           setUserC(data.userID);
@@ -220,6 +222,7 @@ const Event = ({navbarLightMode}) => {
     <div className={navbarLightMode ? 'event-container login-container form lightMode' : 'event-container login-container form'}>
       <div className={'container'}>
         <h2>{title1}</h2>
+        <p>{description1}</p>
         <h3>{username1} <MdVerified className={verified1 ? 'small-icon' : 'small-icon dont'}/></h3>
         <p>{time1}</p>
         <p>{address1}, {city1}</p>
