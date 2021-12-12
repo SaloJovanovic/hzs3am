@@ -64,7 +64,7 @@ public class EventController {
     }
     @GetMapping("/city-search")
     @CrossOrigin
-    public List<Event> getEventByCity(@RequestBody String city){
+    public List<Event> getEventByCity(@RequestParam String city){
         return eventService.getEventByCity(city);
     }
     @PutMapping("/grade-organizer")
