@@ -59,7 +59,7 @@ public class SponsorService {
         }
         return b;
     }
-    public String getBenefitCode(String benefitID, String userID){
+    public CodeModel getBenefitCode(String benefitID, String userID){
         System.out.println(benefitID+" "+userID);
         User u = userRepository.findById(userID).orElse(null);
         Benefit b = benefitRepository.findById(benefitID).orElse(null);
@@ -69,7 +69,10 @@ public class SponsorService {
         String code = UUID.randomUUID().toString();
         code = code.replace("-","");
         code = code.substring(0,12);
-        return code;
+        CodeModel codeModel = CodeModel.builder()
+                .code(code)
+                .build();
+        return codeModel;
     }
 
 }
