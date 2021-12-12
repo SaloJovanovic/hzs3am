@@ -1,0 +1,20 @@
+.item-container{
+    height: 150px;
+    width: 400px;
+    background: #565656;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.item-container p{
+    font-weight: bolder;
+    font-size: 24px;
+    color: #b6b600;
+    display: flex;
+    text-align: center;
+}
+SiPytorchlightning{
+    padding-top: 5px;
+    padding-bottom: -5px;
+}
