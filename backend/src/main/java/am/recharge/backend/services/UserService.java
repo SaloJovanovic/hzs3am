@@ -245,6 +245,9 @@ public class UserService {
         if (code.compareTo(event.getCode()) == 0) user.setPoints(user.getPoints() + 50);
         else throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 
+        try { userRepository.save(user); }
+        catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
+        
         return user;
     }
 }
