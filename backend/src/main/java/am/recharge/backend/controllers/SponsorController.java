@@ -5,7 +5,6 @@ import am.recharge.backend.modelSponsor.Benefit;
 import am.recharge.backend.modelSponsor.BenefitInfo;
 import am.recharge.backend.modelSponsor.Sponsor;
 import am.recharge.backend.modelSponsor.SponsorInfo;
-import am.recharge.backend.modules.CodeModel;
 import am.recharge.backend.services.SponsorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
@@ -71,7 +70,7 @@ public class SponsorController {
         return data;
     }
     @GetMapping("/benefit-code")
-    public CodeModel getBenefitCode(@RequestParam String benefitID, @RequestParam String userID){
+    public String getBenefitCode(@RequestParam String benefitID, @RequestParam String userID){
         System.out.println(benefitID+" "+userID);
         return sponsorService.getBenefitCode(benefitID, userID);
     }
