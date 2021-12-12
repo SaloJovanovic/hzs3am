@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -25,7 +26,7 @@ public class SponsorService {
         return sponsorRepository.insert(sponsor);
     }
     public Benefit createBenefit(BenefitInfo b){
-        Benefit ben = new Benefit(b.getDescription(),b.getPoints(),b.getReward(),b.getSponsorID());
+        Benefit ben = new Benefit(b.getDescription(),b.getPoints(),b.getSponsorID());
         Benefit savedBenefit = benefitRepository.insert(ben);
         Sponsor s = sponsorRepository.findById(b.getSponsorID()).orElse(null);
         s.addBenefit(savedBenefit.getId());
@@ -53,6 +54,10 @@ public class SponsorService {
         }
         return b;
     }
-
+    public String getBenefitCode(){
+        String code = UUID.randomUUID().toString();
+        code = code.substring(0,15);
+        return code;
+    }
 
 }
