@@ -14,7 +14,7 @@ const Footer = ({navbarLightMode}) => {
   return (
     <div className={navbarLightMode ? 'footer-container lightMode' : 'footer-container'}>
       <div data-aos={"fade-up"} className={'logo-and-social footer-element'}>
-        <Link to={'/'} className={'footer-logo'}>Fireship</Link>
+        <Link to={'/'} className={'footer-logo'}>Socijalne mreze</Link>
         <div className={'social'}>
           <Link to={'/'}><FaFacebook className={'social-icon'}></FaFacebook></Link>
           <Link to={'/'}><FaTwitter className={'social-icon'}></FaTwitter></Link>
@@ -24,9 +24,9 @@ const Footer = ({navbarLightMode}) => {
       </div>
       <div data-aos={"fade-up"} className={'support footer-element'}>
         <h3>Support</h3>
-        <Link to={'/'} className={'link'}>Contact Us</Link>
-        <Link to={'/'} className={'link'}>FAQ</Link>
-        <Link to={'/privacy-policy'} className={'link'}>Privacy Policy</Link>
+        <Link to={'/'} className={'link'}>Kontakt</Link>
+        <Link to={'/'} className={'link'}>Česta pitanja</Link>
+        <Link to={'/privacy-policy'} className={'link'}>Politika privatnosti</Link>
       </div>
       <div data-aos={"fade-up"} className={'navigate footer-element'}>
         <h3>Navigate</h3>
