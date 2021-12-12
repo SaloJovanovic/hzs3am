@@ -1,5 +1,7 @@
 package am.recharge.backend.services;
 
+import am.recharge.backend.modelEvent.Event;
+import am.recharge.backend.modelEvent.EventRepository;
 import am.recharge.backend.modules.LoginCreds;
 import am.recharge.backend.modules.LoginInfo;
 import am.recharge.backend.modules.User;
@@ -25,6 +27,7 @@ import java.util.regex.Pattern;
 public class UserService {
     private final UserRepository userRepository;
     private final EmailVerifyRepository emailVerifyRepository;
+    private final EventRepository eventRepository;
 
     @Autowired
     private final EmailSenderService emailSenderService;
@@ -225,5 +228,23 @@ public class UserService {
 
         try { return userRepository.save(user); }
         catch (DataIntegrityViolationException exception) { throw new ResponseStatusException(HttpStatus.BAD_REQUEST); }
+    }
+
+    public User addPoints (String id, String eventID, String code) {
+        Optional<User> userF = userRepository.findById(id);
+
+        if (!userF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        User user = userF.get();
+
+        Optional<Event> eventF = eventRepository.findById(eventID);
+        if (!eventF.isPresent()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+        Event event = eventF.get();
+
+        if (code.compareTo(event.getCode()) == 0) user.setPoints(user.getPoints() + 50);
+        else throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+
+        return user;
     }
 }
