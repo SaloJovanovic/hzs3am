@@ -77,17 +77,16 @@ function App() {
 
   console.log(navbarLightMode);
 
-  const [loggedInUser, setLoggedInUser] = useState();
-  const getUser = async () => {
-    if (cookies.loggedInUserId != null) {
-      await fetch("http://localhost:8080/user/findByID?id=" + cookies.loggedInUserId)
-        .then((response) => response.json())
-        .then((data) => setLoggedInUser(data));
-    }
-  }
-  useEffect(() => getUser(), []);
-
-  console.log(loggedInUser);
+  //
+  // const [loggedInUser, setLoggedInUser] = useState();
+  // const getUser = async () => {
+  //   if (cookies.loggedInUserId != null) {
+  //     await fetch("http://localhost:8080/user/findByID?id=" + cookies.loggedInUserId)
+  //       .then((response) => response.json())
+  //       .then((data) => setLoggedInUser(data));
+  //   }
+  // }
+  // useEffect(() => getUser(), []);
 
   let originalEvents = [];
   const[events, setEvents] = useState([]);
@@ -135,7 +134,7 @@ function App() {
 
   const onEventCreated = async (event) => {
     console.log(event);
-    const result = await fetch(BACKEND_URL + "event/create-new?userID=" + loggedInUser.id, {
+    const result = await fetch(BACKEND_URL + "event/create-new?userID=" + cookies.loggedInUserId, {
       method: "POST",
       body: JSON.stringify({
         title: event.title,
@@ -229,7 +228,7 @@ function App() {
           }></Route>
           <Route path={'/account'} element={
             <div className={'Main'}>
-              <Account loggedInUser={loggedInUser} navbarLightMode={navbarLightMode}></Account>
+              <Account navbarLightMode={navbarLightMode}></Account>
               <Wave waveType={1} navbarLightMode={navbarLightMode}></Wave>
               <Footer navbarLightMode={!navbarLightMode}></Footer>
             </div>

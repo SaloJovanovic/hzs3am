@@ -125,7 +125,7 @@ public class UserService {
                 .datumKreiranja(datumKreiranja)
                 .adresa(adresa)
                 .grad(grad)
-                .points(0)
+                .points(50)
                 .verified(false)
                 .eventsInterested(new ArrayList<String>())
                 .eventsCreated(new ArrayList<String>())
